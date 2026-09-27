@@ -1,0 +1,1533 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:responsive='true' b:version='2' lang='tr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <meta content='#0e1621' name='theme-color'/>
+  <b:include data='blog' name='all-head-content'/>
+  <title><data:blog.pageTitle/></title>
+  <!-- v037 &#8212; Sosyal meta temizliği: Blogger OG + Twitter/X Card -->
+  <!-- og:title, og:description, og:url, og:image, og:locale ve og:site_name
+       Blogger all-head-content tarafından üretilir; burada tekrar edilmez. -->
+  <b:if cond='data:view.isPost'>
+    <meta content='article' property='og:type'/>
+  <b:else/>
+    <meta content='website' property='og:type'/>
+  </b:if>
+
+  <b:if cond='data:view.featuredImage'>
+    <meta content='1200' property='og:image:width'/>
+    <meta content='630' property='og:image:height'/>
+    <meta expr:content='data:view.title.escaped' property='og:image:alt'/>
+
+    <meta expr:content='resizeImage(data:view.featuredImage, 1200, &quot;1200:630&quot;)' name='twitter:image'/>
+    <meta expr:content='data:view.title.escaped' name='twitter:image:alt'/>
+  </b:if>
+
+  <meta content='summary_large_image' name='twitter:card'/>
+  <meta expr:content='data:view.title.escaped' name='twitter:title'/>
+
+  <b:if cond='data:view.description'>
+    <meta expr:content='data:view.description.escaped' name='twitter:description'/>
+  <b:else/>
+    <meta expr:content='data:view.title.escaped' name='twitter:description'/>
+  </b:if>
+
+  <meta expr:content='data:view.url.canonical' name='twitter:url'/>
+  <!-- RASYOTREND | BLOG TEMASI | v040 | 2026-09-14 -->
+  <!-- BUILD: V029-TEKNIK-ANALIZ-DUZELTME -->
+  <b:skin><![CDATA[
+/* RASYOTREND v011 — responsive Blogger theme */
+:root{--ink:#102b46;--text:#334a5c;--muted:#607080;--accent:#087f80;--line:#dde7ec;--soft:#f3f7f9;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--white);color:var(--text);font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif;overflow-wrap:anywhere}
+a{color:inherit;text-decoration:none}a:hover{color:var(--accent)}button,input{font:inherit}button,a,input,summary{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}img{max-width:100%;height:auto}h1,h2,h3{color:var(--ink);line-height:1.22;margin:0 0 16px}p{margin:0 0 18px}.wrap{width:min(1180px,calc(100% - 48px));margin-inline:auto}.skip{position:absolute;left:16px;top:-100px;padding:10px;background:var(--ink);color:white;z-index:10}.skip:focus{top:8px}.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:750;color:var(--accent)}
+.masthead{border-top:4px solid var(--accent);border-bottom:1px solid var(--line)}.header-row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:26px}.brand{display:inline-flex;align-items:center;gap:10px;color:var(--ink);font-size:26px;font-weight:850;letter-spacing:-1.2px;white-space:nowrap}.brand em{color:var(--accent);font-style:normal}.brand-mark{display:flex;align-items:flex-end;gap:3px;height:28px;padding:3px 0}.brand-mark i{width:5px;background:var(--accent);display:block;border-radius:1px}.brand-mark i:nth-child(1){height:9px}.brand-mark i:nth-child(2){height:15px}.brand-mark i:nth-child(3){height:23px}.tagline{font-size:12px;color:var(--muted);margin:3px 0 0;letter-spacing:.35px}.search{display:flex;align-items:center;border:1px solid var(--line);border-radius:6px;background:var(--soft);width:300px;max-width:100%;padding:4px}.search input{width:100%;min-width:0;border:0;background:transparent;padding:8px 10px;color:var(--ink);font-size:14px}.search button{flex-shrink:0;white-space:nowrap;border:0;border-radius:4px;background:var(--ink);color:white;padding:8px 16px;cursor:pointer}.search button:hover{background:var(--accent)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.navigation{border-top:1px solid var(--line)}.nav-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 30px}.nav-list a{display:block;padding:17px 0;font-weight:650;font-size:13px;border-bottom:2px solid transparent}.nav-list a:hover,.nav-list a[aria-current='page']{border-color:var(--accent);color:var(--accent)}.mobile-menu{display:none}
+.hero{padding:46px 0 40px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}.hero h1{font-size:clamp(30px,4.3vw,50px);letter-spacing:-1.8px;max-width:760px;margin-top:15px}.hero h1 span{color:var(--accent)}.hero p{max-width:670px;color:var(--muted);margin-bottom:0;font-size:16px}.hero-note{font-size:11px;letter-spacing:1.5px;color:var(--muted);border-left:2px solid var(--accent);padding-left:14px;line-height:1.9}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:42px;margin-top:38px;margin-bottom:58px}.main-column,.sidebar,.widget{min-width:0}.section-heading{display:flex;gap:20px;align-items:center;justify-content:space-between;margin-bottom:24px}.section-heading h2{font-size:22px;margin:0;letter-spacing:-.5px}.section-heading span{font-size:12px;color:var(--muted)}.post-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px}.post-card{border-bottom:1px solid var(--line);padding-bottom:24px;min-width:0}.card-image{display:block;aspect-ratio:16/9;overflow:hidden;background:var(--soft);border-radius:7px;margin-bottom:18px;position:relative}.card-image img{height:100%;width:100%;object-fit:cover;display:block}.image-placeholder{height:100%;display:flex;align-items:center;justify-content:center;color:#59717f;font-size:13px;letter-spacing:3px;background:linear-gradient(135deg,#edf6f5,#f4f7fa)}.labels{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px}.labels a{font-size:11px;font-weight:700;line-height:1.4;border-radius:3px;background:#eaf6f3;color:#086d6e;padding:5px 8px}.post-card h2{font-size:22px;letter-spacing:-.5px;margin-bottom:10px}.post-meta{color:var(--muted);font-size:12px;margin-bottom:14px;display:flex;flex-wrap:wrap;gap:5px 12px}.excerpt{font-size:14px;line-height:1.75;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:14px}.read-more{font-size:12px;font-weight:750;color:var(--accent)}.read-more span{margin-left:8px}
+.empty{padding:48px 30px;background:var(--soft);border:1px solid var(--line);border-radius:8px;text-align:center}.empty-symbol{display:inline-grid;place-items:center;width:54px;height:54px;background:#e1efee;color:var(--accent);font-size:26px;border-radius:50%;margin-bottom:20px}.empty h2{font-size:26px;letter-spacing:-.8px}.empty p{max-width:470px;margin:0 auto;color:var(--muted);font-size:15px}.empty .button{margin-top:22px}.button{display:inline-block;padding:10px 18px;background:var(--ink);color:white;border-radius:4px;font-size:13px;font-weight:650}.button:hover{background:var(--accent);color:white}.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:32px}.pager a{border:1px solid var(--line);border-radius:4px;padding:9px 14px;font-size:12px;font-weight:650}
+.side-box{padding:24px;border:1px solid var(--line);border-radius:7px;margin-bottom:24px}.side-box h2{font-size:17px}.side-box p{font-size:14px;color:var(--muted);margin:0}.about-box{background:var(--ink);border-color:var(--ink);color:white}.about-box h2{color:white;font-size:22px;letter-spacing:-.7px;margin-top:14px}.about-box p{color:#cbd9e1}.about-box .eyebrow{color:#75d6ca}.category-list{list-style:none;padding:0;margin:0}.category-list li+li{border-top:1px solid var(--line)}.category-list a{display:flex;justify-content:space-between;gap:12px;padding:13px 0;font-size:13px;font-weight:600}.category-list li:last-child a{padding-bottom:0}.category-list span{color:var(--accent)}.side-note{padding:0 4px;font-size:12px;color:var(--muted);line-height:1.8}.side-note strong{display:block;color:var(--ink);font-size:13px;margin-bottom:8px}
+.article-title{font-size:clamp(29px,4vw,43px);letter-spacing:-1.3px}.breadcrumb{font-size:12px;margin-bottom:22px;color:var(--muted)}.post-body{font-size:17px;line-height:1.9;overflow-wrap:anywhere}.post-body h2{font-size:27px;margin-top:32px}.post-body h3{font-size:21px;margin-top:24px}.post-body a,.comment-body a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}.post-body img{height:auto!important;max-width:100%!important}.post-body .separator{max-width:100%}.post-body .separator a{margin-inline:0!important}.post-body iframe,.post-body video{max-width:100%}.post-body table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}.post-body td,.post-body th{padding:10px;border:1px solid var(--line)}.post-body pre{max-width:100%;overflow-x:auto;padding:18px;background:var(--soft)}.post-body blockquote{margin:24px 0;padding:16px 22px;border-left:3px solid var(--accent);background:var(--soft)}.article-tags{margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}.comments{margin-top:36px;padding-top:26px;border-top:1px solid var(--line)}.comments h2{font-size:22px}.comment-list{list-style:none;margin:0 0 20px;padding:0}.comment{padding:18px 0;border-bottom:1px solid var(--line)}.comment-meta{font-size:12px;color:var(--muted);margin-bottom:10px}.comment-meta strong{color:var(--ink);margin-right:12px}.comment-body{font-size:15px}.comment-help{color:var(--muted);font-size:13px;margin-top:12px}
+.footer{border-top:1px solid var(--line);background:var(--soft);padding:30px 0}.footer-top{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:18px}.footer .brand{font-size:20px}.footer a{font-size:12px}.footer p{color:var(--muted);font-size:12px;max-width:860px;margin:0}.footer-bottom{margin-top:20px;font-size:11px;color:var(--muted)}
+body#layout .layout{display:block}body#layout .desktop-nav,body#layout .mobile-menu,body#layout .hero{display:none}
+@media(max-width:960px){.layout{grid-template-columns:minmax(0,1fr) 250px;gap:26px}.nav-list{gap:8px 23px}.hero-note{display:none}.hero{grid-template-columns:1fr}.post-grid{grid-template-columns:1fr}.post-card h2{font-size:24px}}
+@media(max-width:700px){.wrap{width:calc(100% - 32px)}.header-row{align-items:stretch;flex-direction:column;gap:16px;padding-block:20px}.brand{font-size:25px}.search{width:100%}.desktop-nav{display:none}.mobile-menu{display:block}.mobile-menu summary{cursor:pointer;padding:13px 0;font-size:14px;font-weight:700;color:var(--ink);min-height:48px}.mobile-menu .nav-list{display:block;padding-bottom:10px}.mobile-menu .nav-list a{padding:11px 6px;border-bottom:1px solid var(--line)}.hero{padding:30px 0}.hero h1{letter-spacing:-1px}.hero p{font-size:14px}.layout{grid-template-columns:minmax(0,1fr);gap:32px;margin-top:28px;margin-bottom:36px}.section-heading span{display:none}.empty{padding:34px 20px}.empty h2{font-size:23px}.sidebar{border-top:1px solid var(--line);padding-top:28px}.post-body{font-size:16px}.footer-top{align-items:flex-start;flex-direction:column;gap:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* v011 — Ana sayfa haber slider paneli */
+.news-slider[hidden]{display:none!important}.news-slider{margin-top:32px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--ink);color:#fff}.news-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;border-bottom:1px solid #ffffff24}.news-toolbar h2{color:#fff;font-size:18px;margin:0}.news-toolbar a{color:#9ce5dc;font-size:12px;white-space:nowrap}.news-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}.news-track::-webkit-scrollbar{display:none}.news-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;display:grid;grid-template-columns:1.1fr 1fr}.news-media{min-height:300px;position:relative;background:linear-gradient(135deg,#143e56,#086d6e);overflow:hidden;display:grid;place-items:center}.news-media::before{content:'RASYOTREND';color:#ffffff50;font-size:clamp(22px,3vw,38px);font-weight:800;letter-spacing:3px}.news-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center}.news-copy{padding:30px;align-self:center}.news-copy .eyebrow{color:#9ce5dc}.news-title{font-size:clamp(23px,2.6vw,34px);letter-spacing:-.7px;margin:13px 0 14px;color:#fff}.news-title a:hover{color:#9ce5dc}.news-date{font-size:12px;color:#c3d5df;margin-bottom:20px}.news-read{display:inline-block;padding:9px 16px;border:1px solid #71c6bd;border-radius:4px;color:#a6ece1;font-size:13px;font-weight:650}.news-read:hover{color:#102b46;background:#a6ece1}.news-controls{display:flex;align-items:center;justify-content:center;gap:16px;padding:16px 20px;border-top:1px solid #ffffff24}.news-controls[hidden]{display:none}.news-arrow{width:44px;height:44px;border:1px solid #ffffff50;border-radius:50%;color:#fff;background:transparent;cursor:pointer;font-size:21px;flex-shrink:0}.news-arrow:hover{background:#ffffff20}.news-dots{display:flex;gap:2px;align-items:center}.news-dot{height:40px;width:28px;border:0;background:transparent;padding:0;cursor:pointer}.news-dot::after{content:'';display:block;width:7px;height:7px;border-radius:50%;background:#859cac;margin:auto}.news-dot[aria-current='true']::after{background:#a6ece1;width:19px;border-radius:8px}.news-slider :focus-visible{outline:3px solid #a6ece1;outline-offset:3px}
+@media(max-width:700px){.news-slider{margin-top:24px}.news-toolbar{padding:15px 16px;flex-wrap:wrap;gap:6px}.news-toolbar h2{font-size:16px}.news-slide{grid-template-columns:minmax(0,1fr)}.news-media{min-height:0;aspect-ratio:16/9}.news-copy{padding:22px 20px}.news-title{font-size:24px}.news-controls{gap:10px}.news-arrow{width:40px;height:40px}}
+
+/* v011 — Haber yokken panel görünür kalır */
+.news-track[hidden],.news-empty[hidden]{display:none!important}.news-empty{min-height:260px;padding:48px 24px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(135deg,#102b46,#123e50)}.news-empty h3{font-size:27px;color:#fff;margin:0 0 12px;letter-spacing:-.5px}.news-empty p{color:#c3d5df;font-size:14px;max-width:470px;margin:0}.news-empty .eyebrow{color:#9ce5dc;margin-bottom:18px}@media(max-width:700px){.news-empty{min-height:230px;padding:32px 20px}.news-empty h3{font-size:24px}}
+
+/* v011 — Koyu tema: zemin, paneller ve okunabilir metinler */
+:root{color-scheme:dark;--ink:#e3eaf2;--text:#c9d3df;--muted:#9daebe;--accent:#75cbbb;--line:#2a3a4a;--soft:#151f2c;--white:#0e1621;--raised:#1b2938}
+body{background:var(--white);color:var(--text)}.masthead,.footer{background:#111c28}.navigation{background:#121e2b}.nav-list a:hover,.nav-list a[aria-current='page']{color:var(--accent)}.search{background:#0e1823}.search input::placeholder{color:var(--muted);opacity:1}.search input{color:var(--ink)}.search button,.button,.skip{background:var(--accent);color:#10252b;font-weight:700}.search button:hover,.button:hover{background:#98ded0;color:#10252b}.search input:-webkit-autofill{-webkit-box-shadow:0 0 0 1000px #0e1823 inset;-webkit-text-fill-color:var(--ink)}
+.side-box,.empty,.post-card,.full-post{background:var(--soft)}.about-box{background:#192b38;border-color:#304653;color:var(--text)}.about-box h2,.news-title,.news-toolbar h2,.news-empty h3{color:var(--ink)}.about-box p,.news-empty p,.news-date{color:var(--muted)}.about-box .eyebrow,.news-copy .eyebrow,.news-empty .eyebrow,.news-toolbar a{color:var(--accent)}.empty-symbol,.labels a{background:#203c3e;color:#96dfd0}.image-placeholder{background:linear-gradient(135deg,#1b303c,#182637);color:#afc7ce}.post-card{padding:18px;border:1px solid var(--line);border-radius:8px}.full-post{padding:28px;border:1px solid var(--line);border-radius:8px}.pager a{background:var(--soft)}.pager a:hover{background:var(--raised);border-color:var(--accent)}
+.post-body{color:var(--text)}.post-body blockquote,.post-body pre{background:#101b27;color:var(--text)}.post-body th{background:var(--raised);color:var(--ink)}.post-body td{background:var(--soft)}.comment{background:var(--soft);padding:18px;border:1px solid var(--line);border-radius:6px;margin-bottom:12px}.post-body hr{border:0;border-top:1px solid var(--line)}
+.news-slider{background:var(--soft);color:var(--text)}.news-toolbar,.news-controls{background:#172533;border-color:var(--line)}.news-empty{background:linear-gradient(135deg,#172432,#19323c)}.news-media{background:#0e1621}.news-media::before{color:#adc7c9}.news-read{border-color:#568f87;color:#96dfd0}.news-read:hover{background:#96dfd0;color:#10252b}.news-arrow{border-color:#53717e;color:var(--ink)}.news-arrow:hover{background:#263e4c}.news-dot::after{background:#8196a6}.news-dot[aria-current='true']::after{background:var(--accent)}::selection{background:#315f60;color:#f0f5f6}
+@media(max-width:700px){.full-post{padding:20px 16px}.post-card{padding:16px}}
+
+/* v011 — Slider sol sütunda, bilgi ve kategoriler sağda */
+.main-column > .news-slider{margin-top:0;margin-bottom:32px}
+@media(min-width:701px) and (max-width:960px){.main-column .news-slide{grid-template-columns:minmax(0,1fr)}.main-column .news-media{min-height:0;aspect-ratio:16/9}}
+@media(max-width:700px){.main-column > .news-slider{margin-bottom:28px}}
+
+/* v011 — Ana sayfa dışında yan sütun yok; içerik tam genişlikte */
+.layout.layout-wide{grid-template-columns:minmax(0,1fr)}
+
+/* v015 — Masaüstü alt menüler: gerçek CSS hover dropdown */
+@media(min-width:701px){
+  .desktop-dropdown{position:relative}
+  .desktop-dropdown>.nav-trigger{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:17px 0;
+    border-bottom:2px solid transparent;
+    font-size:13px;
+    font-weight:650;
+    color:var(--text);
+    cursor:default;
+    user-select:none
+  }
+  .desktop-dropdown>.nav-submenu{
+    display:block;
+    visibility:hidden;
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(4px);
+    transition:opacity .14s ease,transform .14s ease,visibility 0s linear .14s
+  }
+  .desktop-dropdown:hover>.nav-trigger,
+  .desktop-dropdown.is-current>.nav-trigger{
+    color:var(--accent);
+    border-color:var(--accent)
+  }
+  .desktop-dropdown:hover>.submenu-chevron,
+  .desktop-dropdown:hover>.nav-trigger .submenu-chevron{
+    transform:rotate(180deg)
+  }
+  .desktop-dropdown:hover>.nav-submenu{
+    visibility:visible;
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+    transition-delay:0s
+  }
+  .desktop-dropdown .nav-submenu a{
+    padding:12px 14px;
+    border:0;
+    border-radius:4px;
+    white-space:nowrap
+  }
+  .desktop-dropdown .nav-submenu a:hover,
+  .desktop-dropdown .nav-submenu a[aria-current='page']{
+    background:var(--raised);
+    color:var(--accent)
+  }
+}
+
+/* v017 — Fon Getirileri ve Fon Verileri ikinci seviye alt menüleri */
+@media(min-width:701px){
+  .desktop-dropdown .submenu-has-children{position:relative}
+  .desktop-dropdown .submenu-has-children>a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px
+  }
+  .submenu-side-chevron{
+    color:var(--accent);
+    font-size:17px;
+    line-height:1
+  }
+  .desktop-dropdown .nav-submenu-level2{
+    top:-9px;
+    left:100%;
+    min-width:280px;
+    visibility:hidden;
+    opacity:0;
+    pointer-events:none;
+    transform:translateX(4px);
+    border-radius:8px;
+    transition:opacity .14s ease,transform .14s ease,visibility 0s linear .14s
+  }
+  .desktop-dropdown .submenu-has-children:hover>.nav-submenu-level2{
+    visibility:visible;
+    opacity:1;
+    pointer-events:auto;
+    transform:translateX(0);
+    transition-delay:0s
+  }
+  .desktop-dropdown .submenu-has-children:hover>a{
+    background:var(--raised);
+    color:var(--accent)
+  }
+}
+@media(max-width:700px){
+  .mobile-level2{
+    list-style:none;
+    margin:2px 0 8px 14px;
+    padding:0 0 0 8px;
+    border-left:1px solid var(--line)
+  }
+  .mobile-menu .nav-list .mobile-level2 a{
+    padding:10px 12px;
+    font-size:12px;
+    color:var(--muted)
+  }
+  .mobile-menu .nav-list .mobile-level2 a:hover{
+    color:var(--accent)
+  }
+}
+
+/* v011 — Borsa alt menüsü */
+.nav-dropdown{position:relative}.nav-dropdown > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:9px;padding:17px 0;border-bottom:2px solid transparent;font-size:13px;font-weight:650;color:var(--text)}.nav-dropdown > summary::-webkit-details-marker{display:none}.nav-dropdown[open] > summary,.nav-dropdown.is-current > summary,.nav-dropdown > summary:hover{color:var(--accent);border-color:var(--accent)}.submenu-chevron{display:inline-block}.nav-dropdown[open] .submenu-chevron{transform:rotate(180deg)}.nav-submenu{position:absolute;top:100%;left:0;z-index:30;min-width:230px;list-style:none;margin:0;padding:8px;background:var(--soft);border:1px solid var(--line);border-radius:0 0 8px 8px;box-shadow:0 12px 28px #0005}.nav-list .nav-submenu a{padding:12px 14px;border:0;border-radius:4px;white-space:nowrap}.nav-list .nav-submenu a:hover,.nav-list .nav-submenu a[aria-current='page']{background:var(--raised);color:var(--accent)}
+@media(max-width:700px){.mobile-menu .nav-dropdown > summary{padding:11px 6px;min-height:0;font-size:13px;border-bottom:1px solid var(--line)}.nav-submenu{position:static;min-width:0;margin:4px 0 8px 12px;padding:4px;border-radius:6px;box-shadow:none}.mobile-menu .nav-list .nav-submenu a{padding:12px;white-space:normal}}
+
+/* v035 — Öne Çıkanlar: alt bantta ortalanmış başlık + sağ alt CTA */
+.news-slide{
+  position:relative;
+  display:block;
+  min-height:0;
+  isolation:isolate;
+}
+.news-media{
+  width:100%;
+  min-height:340px;
+  aspect-ratio:16/7.2;
+  position:relative;
+  overflow:hidden;
+  background:#0e1621;
+}
+.news-media img{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.news-media::before{
+  z-index:0;
+}
+.news-media::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(14,22,33,0) 0%,
+      rgba(14,22,33,.02) 44%,
+      rgba(14,22,33,.50) 70%,
+      rgba(14,22,33,.92) 100%
+    );
+}
+.news-copy{
+  position:absolute;
+  z-index:3;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  min-height:40%;
+  padding:30px clamp(145px,16vw,205px) 26px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  text-align:center;
+  color:#fff;
+  background:transparent;
+}
+.news-copy .eyebrow{
+  color:#83dfcf;
+  text-align:center;
+}
+.news-title{
+  max-width:980px;
+  margin:8px auto 8px;
+  color:#fff!important;
+  font-size:clamp(23px,2.5vw,34px);
+  line-height:1.12;
+  text-align:center;
+  text-shadow:0 2px 14px rgba(0,0,0,.62);
+}
+.news-title a{
+  color:#fff!important;
+}
+.news-title a:hover{
+  color:#a6ece1!important;
+}
+.news-date{
+  color:#d7e4e8!important;
+  text-align:center;
+  text-shadow:0 1px 6px rgba(0,0,0,.55);
+  margin-bottom:0;
+}
+.news-read{
+  position:absolute;
+  right:clamp(18px,2.6vw,34px);
+  bottom:clamp(18px,2.3vw,28px);
+  margin:0;
+  background:rgba(14,22,33,.58);
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+}
+
+@media(max-width:960px){
+  .news-media{
+    aspect-ratio:16/8.2;
+    min-height:330px;
+  }
+  .news-copy{
+    min-height:44%;
+    padding:26px 125px 22px;
+  }
+  .news-title{
+    font-size:clamp(21px,3vw,29px);
+    max-width:760px;
+  }
+  .news-read{
+    right:20px;
+    bottom:20px;
+  }
+}
+
+@media(max-width:700px){
+  .news-media{
+    aspect-ratio:4/3;
+    min-height:380px;
+  }
+  .news-media img{
+    object-fit:cover;
+    object-position:center;
+  }
+  .news-media::after{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(14,22,33,.01) 0%,
+        rgba(14,22,33,.08) 38%,
+        rgba(14,22,33,.68) 67%,
+        rgba(14,22,33,.98) 100%
+      );
+  }
+  .news-copy{
+    min-height:54%;
+    padding:22px 18px 18px;
+    align-items:center;
+    justify-content:flex-end;
+  }
+  .news-title{
+    max-width:100%;
+    font-size:clamp(21px,6.2vw,27px);
+    line-height:1.14;
+    margin:8px 0 8px;
+  }
+  .news-date{
+    margin-bottom:10px;
+  }
+  .news-read{
+    position:static;
+    align-self:flex-end;
+    margin-top:6px;
+  }
+}
+
+
+/* v038 — Slider başlığı yalnızca erişilebilirlik için DOM'da; görselde gizli */
+.news-slider .slider-title-sr-only{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  padding:0!important;
+  margin:-1px!important;
+  overflow:hidden!important;
+  clip:rect(0,0,0,0)!important;
+  clip-path:inset(50%)!important;
+  white-space:nowrap!important;
+  border:0!important;
+}
+
+/* Başlık artık kapak görselinin içinde hazırlandığı için alt overlay hafifletildi. */
+.news-slider .news-media::after{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(14,22,33,0) 0%,
+      rgba(14,22,33,0) 58%,
+      rgba(14,22,33,.22) 78%,
+      rgba(14,22,33,.62) 100%
+    );
+}
+@media(max-width:700px){
+  .news-slider .news-media::after{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(14,22,33,0) 0%,
+        rgba(14,22,33,.02) 54%,
+        rgba(14,22,33,.34) 76%,
+        rgba(14,22,33,.78) 100%
+      );
+  }
+}
+
+
+/* v040 — Slider orta görsel alanı tam 16:9, kesmesiz yerleşim */
+.news-slider .news-media{
+  width:100%;
+  aspect-ratio:16 / 9!important;
+  min-height:0!important;
+  height:auto!important;
+  position:relative;
+  overflow:hidden;
+  background:#0e1621;
+}
+
+.news-slider .news-media img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain!important;
+  object-position:center center!important;
+}
+
+/* Üst başlık bandını daha kompakt tut */
+.news-slider .news-toolbar{
+  padding:10px 18px;
+  min-height:0;
+}
+.news-slider .news-toolbar h2{
+  margin:0;
+}
+.news-slider .news-toolbar a{
+  line-height:1.2;
+}
+
+/* Alt kontrol bandını daralt */
+.news-slider .news-controls{
+  padding:7px 14px;
+  gap:12px;
+}
+.news-slider .news-arrow{
+  width:38px;
+  height:38px;
+  font-size:18px;
+}
+.news-slider .news-dot{
+  width:24px;
+  height:30px;
+}
+
+/* 16:9 oranı tablet ve mobilde de korunur */
+@media(max-width:960px){
+  .news-slider .news-media{
+    aspect-ratio:16 / 9!important;
+    min-height:0!important;
+  }
+  .news-slider .news-toolbar{
+    padding:9px 15px;
+  }
+  .news-slider .news-controls{
+    padding:6px 12px;
+  }
+}
+@media(max-width:700px){
+  .news-slider .news-media{
+    aspect-ratio:16 / 9!important;
+    min-height:0!important;
+  }
+  .news-slider .news-media img{
+    object-fit:contain!important;
+    object-position:center center!important;
+  }
+  .news-slider .news-toolbar{
+    padding:8px 12px;
+  }
+  .news-slider .news-controls{
+    padding:5px 10px;
+    gap:8px;
+  }
+  .news-slider .news-arrow{
+    width:34px;
+    height:34px;
+    font-size:16px;
+  }
+  .news-slider .news-dot{
+    width:22px;
+    height:28px;
+  }
+}
+
+  ]]></b:skin>
+</head>
+<body>
+  <a class='skip' href='#main-content'>İçeriğe geç</a>
+  <header class='masthead'>
+    <div class='wrap header-row'>
+      <div><a aria-label='RASYOTREND ana sayfa' class='brand' expr:href='data:blog.homepageUrl'><span aria-hidden='true' class='brand-mark'><i/><i/><i/></span><span>RASYO<em>TREND</em></span></a><p class='tagline'>Finansı anlamak, bilinçli adımlarla başlar.</p></div>
+      <form class='search' expr:action='data:blog.homepageUrl + &quot;search&quot;' method='get' role='search'>
+        <label class='sr-only' for='site-search'>Blogda ara</label><input id='site-search' name='q' placeholder='Konu veya analiz ara…' required='required' type='search'/><button type='submit'>Ara</button>
+      </form>
+    </div>
+    <div class='navigation'><div class='wrap'>
+      <nav aria-label='Ana menü' class='desktop-nav'><ul class='nav-list'>
+        <li><a expr:href='data:blog.homepageUrl'>Ana Sayfa</a></li>
+        <li class='nav-parent desktop-dropdown' data-category='Borsa'>
+          <span class='nav-trigger'>Borsa <span aria-hidden='true' class='submenu-chevron'>&#8964;</span></span>
+          <ul class='nav-submenu'>
+            <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Puantaj&quot;'>Puantaj</a></li>
+            <li><a expr:href='data:blog.homepageUrl + &quot;p/temel-analiz.html&quot;'>Temel Analiz</a></li>
+            <li><a href='/p/teknik-analiz_01146534042.html'>Teknik Analiz</a></li>
+          </ul>
+        </li>
+        <li class='nav-parent desktop-dropdown' data-category='Fon'>
+          <span class='nav-trigger'>Fon <span aria-hidden='true' class='submenu-chevron'>&#8964;</span></span>
+          <ul class='nav-submenu'>
+            <li class='submenu-has-children'>
+              <a href='/p/fon-getirileri.html'>Fon Getirileri <span aria-hidden='true' class='submenu-side-chevron'>&#8250;</span></a>
+              <ul class='nav-submenu nav-submenu-level2'>
+                <li><a href='https://www.rasyotrend.com/p/menkul-kymet-fonlar-fiyat.html'>Menkul Kıymet Yatırım Fonları</a></li>
+                <li><a href='https://www.rasyotrend.com/p/emeklilik-fonlar-getiriler.html'>Emeklilik Fonları</a></li>
+                <li><a href='https://www.rasyotrend.com/p/borsa-yatrm-fonlar-getiriler.html'>Borsa Yatırım Fonları</a></li>
+              </ul>
+            </li>
+            <li class='submenu-has-children'>
+              <a href='/p/fon-verileri.html'>Fon Verileri <span aria-hidden='true' class='submenu-side-chevron'>&#8250;</span></a>
+              <ul class='nav-submenu nav-submenu-level2'>
+                <li><a href='https://www.rasyotrend.com/p/menkul-kymet-fonlar-veriler.html'>Menkul Kıymet Yatırım Fonları</a></li>
+                <li><a href='https://www.rasyotrend.com/p/emeklilik-fonlar-veriler.html'>Emeklilik Fonları</a></li>
+                <li><a href='https://www.rasyotrend.com/p/borsa-yatrm-fonlar-veriler.html'>Borsa Yatırım Fonları</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class='nav-parent desktop-dropdown' data-category='Halka Arz'>
+          <span class='nav-trigger'>Halka Arz <span aria-hidden='true' class='submenu-chevron'>&#8964;</span></span>
+          <ul class='nav-submenu'>
+            <li><a expr:href='data:blog.homepageUrl + &quot;search/label/G%C3%BCncel%20Halka%20Arzlar&quot;'>Güncel Halka Arzlar</a></li>
+            <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Halka%20Arz%20Getirileri&quot;'>Halka Arz Getirileri</a></li>
+          </ul>
+        </li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/G%C3%BCncel%20Analizler&quot;'>Güncel Analizler</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Finans%20Haberleri&quot;'>Finans Haberleri</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Model%20Portf%C3%B6y&quot;'>Model Portföy</a></li>
+      </ul></nav>
+      <details class='mobile-menu'><summary>Menü ve kategoriler</summary><nav aria-label='Mobil menü'><ul class='nav-list'>
+        <li><a expr:href='data:blog.homepageUrl'>Ana Sayfa</a></li>
+        <li class='nav-parent'><details class='nav-dropdown' data-category='Borsa'><summary>Borsa <span aria-hidden='true' class='submenu-chevron'>&#8964;</span></summary><ul class='nav-submenu'>
+          <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Puantaj&quot;'>Puantaj</a></li>
+          <li><a expr:href='data:blog.homepageUrl + &quot;p/temel-analiz.html&quot;'>Temel Analiz</a></li>
+          <li><a href='/p/teknik-analiz_01146534042.html'>Teknik Analiz</a></li>
+        </ul></details></li>
+        <li class='nav-parent'><details class='nav-dropdown' data-category='Fon'><summary>Fon <span aria-hidden='true' class='submenu-chevron'>&#8964;</span></summary><ul class='nav-submenu'>
+          <li class='mobile-submenu-group'>
+            <a href='/p/fon-getirileri.html'>Fon Getirileri</a>
+            <ul class='mobile-level2'>
+              <li><a href='https://www.rasyotrend.com/p/menkul-kymet-fonlar-fiyat.html'>Menkul Kıymet Yatırım Fonları</a></li>
+              <li><a href='https://www.rasyotrend.com/p/emeklilik-fonlar-getiriler.html'>Emeklilik Fonları</a></li>
+              <li><a href='https://www.rasyotrend.com/p/borsa-yatrm-fonlar-getiriler.html'>Borsa Yatırım Fonları</a></li>
+            </ul>
+          </li>
+          <li class='mobile-submenu-group'>
+            <a href='/p/fon-verileri.html'>Fon Verileri</a>
+            <ul class='mobile-level2'>
+              <li><a href='https://www.rasyotrend.com/p/menkul-kymet-fonlar-veriler.html'>Menkul Kıymet Yatırım Fonları</a></li>
+              <li><a href='https://www.rasyotrend.com/p/emeklilik-fonlar-veriler.html'>Emeklilik Fonları</a></li>
+              <li><a href='https://www.rasyotrend.com/p/borsa-yatrm-fonlar-veriler.html'>Borsa Yatırım Fonları</a></li>
+            </ul>
+          </li>
+        </ul></details></li>
+        <li class='nav-parent'><details class='nav-dropdown' data-category='Halka Arz'><summary>Halka Arz <span aria-hidden='true' class='submenu-chevron'>&#8964;</span></summary><ul class='nav-submenu'>
+          <li><a expr:href='data:blog.homepageUrl + &quot;search/label/G%C3%BCncel%20Halka%20Arzlar&quot;'>Güncel Halka Arzlar</a></li>
+          <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Halka%20Arz%20Getirileri&quot;'>Halka Arz Getirileri</a></li>
+        </ul></details></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/G%C3%BCncel%20Analizler&quot;'>Güncel Analizler</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Finans%20Haberleri&quot;'>Finans Haberleri</a></li>
+      </ul></nav></details>
+    </div></div>
+  </header>
+  <div class='wrap'>
+
+    <div expr:class='data:view.isHomepage ? &quot;layout&quot; : &quot;layout layout-wide&quot;'>
+      <main class='main-column' id='main-content' tabindex='-1'>
+    <b:if cond='data:view.isHomepage'>
+      <section aria-label='Öne çıkan içerikler' aria-roledescription='slayt gösterisi' class='news-slider' expr:data-feed-url='data:blog.homepageUrl + &quot;feeds/posts/default/-/Slider?alt=json&amp;max-results=5&amp;orderby=published&quot;' id='news-slider'>
+        <div class='news-toolbar'><h2>Öne Çıkanlar</h2><a expr:href='data:blog.homepageUrl + &quot;search/label/Slider&quot;'>Tüm öne çıkanlar &#8594;</a></div>
+        <div aria-live='polite' class='news-empty' role='status'><div class='eyebrow'>RASYOTREND</div><h3>Henüz öne çıkan içerik yok</h3><p>Öne çıkan içerikler yayımlandığında burada gösterilecek.</p></div>
+        <div aria-label='Öne çıkan içerikler; sağ ve sol ok tuşlarıyla geçiş yapabilirsiniz' class='news-track' hidden='hidden' id='news-track' tabindex='0'/>
+        <div class='news-controls' hidden='hidden'><button aria-controls='news-track' aria-label='Önceki içerik' class='news-arrow news-prev' type='button'>&#8592;</button><div aria-label='İçerik seçimi' class='news-dots' role='group'/><button aria-controls='news-track' aria-label='Sonraki içerik' class='news-arrow news-next' type='button'>&#8594;</button></div>
+        <p aria-atomic='true' aria-live='polite' class='sr-only news-status'/>
+      </section>
+    </b:if>
+        <b:section class='main' id='main' maxwidgets='1' showaddelement='no'>
+          <b:widget id='Blog1' locked='true' mobile='yes' title='Blog Kayıtları' type='Blog' version='1'>
+            <b:widget-settings>
+              <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+              <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+              <b:widget-setting name='authorLabel'>By</b:widget-setting>
+              <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+              <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='showAuthor'>false</b:widget-setting>
+              <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+              <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='timestampLabel'>-</b:widget-setting>
+              <b:widget-setting name='reactionsLabel'/>
+              <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+              <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+              <b:widget-setting name='showLabels'>true</b:widget-setting>
+              <b:widget-setting name='showLocation'>false</b:widget-setting>
+              <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+              <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+              <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+              <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+              <b:widget-setting name='showReactions'>false</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main' var='top'>
+              <b:if cond='data:blog.pageType == &quot;static_page&quot; and data:blog.canonicalUrl == data:blog.canonicalHomepageUrl + &quot;p/fon-getirileri.html&quot;'>
+                <section aria-labelledby='fon-getirileri-title'>
+                  <div class='section-heading'><h1 id='fon-getirileri-title' style='font-size:24px;margin:0'>Fon Getirileri</h1></div>
+                  <p style='color:var(--muted)'>Türkiye yatırım fonlarının performansını karşılaştırın ve dönemsel getirilerini inceleyin.</p>
+                  <div class='empty'><p>Fon verileri yakında burada görüntülenecek.</p></div>
+                </section>
+              <b:else/>
+              <b:if cond='data:blog.pageType == &quot;item&quot; or data:blog.pageType == &quot;static_page&quot;'>
+                <b:loop values='data:posts' var='post'><b:include data='post' name='article'/></b:loop>
+              <b:else/>
+                <div class='section-heading'>
+                  <b:if cond='data:blog.url == data:blog.homepageUrl'><h2>Son paylaşımlar</h2><span>RASYOTREND / BLOG</span><b:else/><h1 style='font-size:24px;margin:0'><b:if cond='data:blog.searchLabel'><data:blog.searchLabel/><b:elseif cond='data:blog.searchQuery'/>Arama: <data:blog.searchQuery/><b:else/>Yazı arşivi</b:if></h1></b:if>
+                </div>
+                <b:if cond='data:posts.empty'>
+                  <section class='empty'><div aria-hidden='true' class='empty-symbol'>&#8599;</div><b:if cond='data:blog.pageType == &quot;error_page&quot;'><h2>Bu sayfa bulunamadı.</h2><p>Bağlantı değişmiş olabilir. Ana sayfadan devam edebilirsiniz.</p><a class='button' expr:href='data:blog.homepageUrl'>Ana sayfaya dön</a><b:elseif cond='data:blog.url == data:blog.homepageUrl'/><h2>İlk yazıda buluşalım.</h2><p>RASYOTREND yayın hayatına hazırlanıyor. Finans haberleri, analizler ve halka arz içerikleri yayımlandıkça burada yer alacak.</p><b:else/><h2>Henüz bir yazı bulunamadı.</h2><p>Bu kategoride henüz paylaşım olmayabilir veya aradığınız ifadeyle eşleşen bir yazı bulunmuyor. Başka bir konu arayabilirsiniz.</p><a class='button' expr:href='data:blog.homepageUrl'>Ana sayfaya dön</a></b:if></section>
+                <b:else/>
+                  <div class='post-grid'><b:loop values='data:posts' var='post'><b:include data='post' name='card'/></b:loop></div>
+                </b:if>
+                <b:include name='pagination'/>
+              </b:if>
+                          </b:if>
+            </b:includable>
+            <b:includable id='article' var='post'>
+              <article class='full-post'>
+                <div class='breadcrumb'><a expr:href='data:blog.homepageUrl'>Ana Sayfa</a> / <b:if cond='data:blog.pageType == &quot;static_page&quot;'>Sayfa<b:else/>Yazı</b:if></div>
+                <b:include data='post' name='tags'/>
+                <h1 class='article-title'><b:if cond='data:post.title'><data:post.title/><b:else/>Başlıksız yazı</b:if></h1>
+                <b:if cond='data:blog.pageType == &quot;item&quot;'><div class='post-meta'><span><data:post.author/></span><span><data:post.timestamp/></span></div></b:if>
+                <div class='post-body'><data:post.body/></div>
+                <b:if cond='data:post.labels'><div class='article-tags'><b:include data='post' name='tags'/></div></b:if>
+              </article>
+              <b:if cond='data:post.allowComments or data:post.numComments != 0'><b:include data='post' name='comments'/></b:if>
+            </b:includable>
+            <b:includable id='backlinkDeleteIcon' var='backlink'/>
+            <b:includable id='backlinks' var='post'/>
+            <b:includable id='card' var='post'>
+              <article class='post-card'>
+                <a class='card-image' expr:aria-label='data:post.title ? data:post.title : &quot;Yazıyı oku&quot;' expr:href='data:post.url'><b:if cond='data:post.firstImageUrl'><img alt='' decoding='async' expr:src='data:post.firstImageUrl' loading='lazy'/><b:else/><span aria-hidden='true' class='image-placeholder'>RASYOTREND</span></b:if></a>
+                <b:include data='post' name='tags'/>
+                <h2><a expr:href='data:post.url'><b:if cond='data:post.title'><data:post.title/><b:else/>Başlıksız yazı</b:if></a></h2>
+                <div class='post-meta'><span><data:post.timestamp/></span><span><data:post.author/></span></div>
+                <p class='excerpt'><data:post.snippet/></p>
+                <a class='read-more' expr:href='data:post.url'>Yazıyı oku<span aria-hidden='true'>&#8599;</span><span class='sr-only'>: <data:post.title/></span></a>
+              </article>
+            </b:includable>
+            <b:includable id='comment-form' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <b:if cond='data:mobile'>
+      <h4 id='comment-post-message'>
+        <a expr:id='data:widget.instanceId + &quot;_comment-editor-toggle-link&quot;' href='javascript:void(0)'><data:postCommentMsg/></a></h4>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+    <b:else/>
+      <h4 id='comment-post-message'><data:postCommentMsg/></h4>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    </b:if>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+            <b:includable id='commentDeleteIcon' var='comment'>
+  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+    <b:if cond='data:showCmtPopup'>
+      <div class='goog-toggle-button'>
+        <div class='goog-inline-block comment-action-icon'/>
+      </div>
+    <b:else/>
+      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:top.deleteCommentMsg'>
+        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
+      </a>
+    </b:if>
+  </span>
+</b:includable>
+            <b:includable id='comment_count_picker' var='post'>
+  <a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+    <data:post.commentLabelFull/>:
+  </a>
+</b:includable>
+            <b:includable id='comment_picker' var='post'>
+  <b:if cond='data:post.showThreadedComments'>
+    <b:include data='post' name='threaded_comments'/>
+  <b:else/>
+    <b:include data='post' name='comments'/>
+  </b:if>
+</b:includable>
+            <b:includable id='comments' var='post'>
+              <section class='comments' id='comments'><h2>Yorumlar (<data:post.numComments/>)</h2>
+                <ul class='comment-list'><b:loop values='data:post.comments' var='comment'><li class='comment' expr:id='&quot;c&quot; + data:comment.id'><div class='comment-meta'><strong><b:if cond='data:comment.authorUrl'><a expr:href='data:comment.authorUrl' rel='nofollow ugc'><data:comment.author/></a><b:else/><data:comment.author/></b:if></strong><span><data:comment.timestamp/></span></div><div class='comment-body'><b:if cond='data:comment.isDeleted'>Bu yorum silinmiş.<b:else/><data:comment.body/></b:if></div></li></b:loop></ul>
+                <b:if cond='data:post.allowComments'><a class='button' expr:href='data:post.addCommentUrl'>Yorum yaz</a><p class='comment-help'>Yorumunuzu Blogger yorum formunda paylaşabilirsiniz.</p><b:else/><p class='comment-help'>Bu yazı yeni yorumlara kapalıdır.</p></b:if>
+              </section>
+            </b:includable>
+            <b:includable id='feedLinks'>
+  <b:if cond='data:blog.pageType != &quot;item&quot;'> <!-- Blog feed links -->
+    <b:if cond='data:feedLinks'>
+      <div class='blog-feeds'>
+        <b:include data='feedLinks' name='feedLinksBody'/>
+      </div>
+    </b:if>
+
+  <b:else/> <!--Post feed links -->
+    <div class='post-feeds'>
+      <b:loop values='data:posts' var='post'>
+        <b:include cond='data:post.allowComments and data:post.feedLinks' data='post.feedLinks' name='feedLinksBody'/>
+      </b:loop>
+    </div>
+  </b:if>
+</b:includable>
+            <b:includable id='feedLinksBody' var='links'>
+  <div class='feed-links'>
+  <data:feedLinksMsg/>
+  <b:loop values='data:links' var='f'>
+     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+  </b:loop>
+  </div>
+</b:includable>
+            <b:includable id='iframe_comments' var='post'>
+  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+            <b:includable id='mobile-index-post' var='post'>
+  <div class='mobile-date-outer date-outer'>
+    <b:if cond='data:post.dateHeader'>
+      <div class='date-header'>
+        <span><data:post.dateHeader/></span>
+      </div>
+    </b:if>
+
+    <div class='mobile-post-outer'>
+      <a expr:href='data:post.url'>
+        <h3 class='mobile-index-title entry-title' itemprop='name'>
+          <data:post.title/>
+        </h3>
+
+        <div class='mobile-index-arrow'>&amp;rsaquo;</div>
+
+        <div class='mobile-index-contents'>
+          <b:if cond='data:post.thumbnailUrl'>
+            <div class='mobile-index-thumbnail'>
+              <div class='Image'>
+                <img expr:src='data:post.thumbnailUrl'/>
+              </div>
+            </div>
+          </b:if>
+
+          <div class='post-body'>
+            <b:if cond='data:post.snippet'><data:post.snippet/></b:if>
+          </div>
+        </div>
+
+        <div style='clear: both;'/>
+      </a>
+
+      <div class='mobile-index-comment'>
+        <b:include cond='data:blog.pageType != &quot;static_page&quot;                          and data:post.allowComments                          and data:post.numComments != 0' data='post' name='comment_count_picker'/>
+      </div>
+    </div>
+  </div>
+</b:includable>
+            <b:includable id='mobile-main' var='top'>
+    <!-- posts -->
+    <div class='blog-posts hfeed'>
+
+      <b:include data='top' name='status-message'/>
+
+      <b:if cond='data:blog.pageType == &quot;index&quot;'>
+        <b:loop values='data:posts' var='post'>
+          <b:include data='post' name='mobile-index-post'/>
+        </b:loop>
+      <b:else/>
+        <b:loop values='data:posts' var='post'>
+          <b:include data='post' name='mobile-post'/>
+        </b:loop>
+      </b:if>
+    </div>
+
+   <b:include name='mobile-nextprev'/>
+</b:includable>
+            <b:includable id='mobile-nextprev'>
+  <div class='blog-pager' id='blog-pager'>
+    <b:if cond='data:newerPageUrl'>
+      <div class='mobile-link-button' id='blog-pager-newer-link'>
+      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
+      </div>
+    </b:if>
+
+    <b:if cond='data:olderPageUrl'>
+      <div class='mobile-link-button' id='blog-pager-older-link'>
+      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
+      </div>
+    </b:if>
+
+    <div class='mobile-link-button' id='blog-pager-home-link'>
+    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+    </div>
+
+    <div class='mobile-desktop-link'>
+      <a class='home-link' expr:href='data:desktopLinkUrl'><data:desktopLinkMsg/></a>
+    </div>
+
+  </div>
+  <div class='clear'/>
+</b:includable>
+            <b:includable id='mobile-post' var='post'>
+  <div class='date-outer'>
+    <b:if cond='data:post.dateHeader'>
+      <h2 class='date-header'><span><data:post.dateHeader/></span></h2>
+    </b:if>
+    <div class='date-posts'>
+      <div class='post-outer'>
+
+        <div class='post hentry uncustomized-post-template' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+          <b:if cond='data:post.thumbnailUrl'>
+            <meta expr:content='data:post.thumbnailUrl' itemprop='image_url'/>
+          </b:if>
+          <meta expr:content='data:blog.blogId' itemprop='blogId'/>
+          <meta expr:content='data:post.id' itemprop='postId'/>
+
+          <a expr:name='data:post.id'/>
+          <b:if cond='data:post.title'>
+            <h3 class='post-title entry-title' itemprop='name'>
+              <b:if cond='data:post.link'>
+                <a expr:href='data:post.link'><data:post.title/></a>
+              <b:elseif cond='data:post.url and data:blog.url != data:post.url'/>
+                <a expr:href='data:post.url'><data:post.title/></a>
+              <b:else/>
+                <data:post.title/>
+              </b:if>
+            </h3>
+          </b:if>
+
+          <div class='post-header'>
+            <div class='post-header-line-1'/>
+          </div>
+
+          <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'>
+            <data:post.body/>
+            <div style='clear: both;'/> <!-- clear for photos floats -->
+          </div>
+
+          <div class='post-footer'>
+            <div class='post-footer-line post-footer-line-1'>
+              <span class='post-author vcard'>
+                <b:if cond='data:top.showAuthor'>
+                  <b:if cond='data:post.authorProfileUrl'>
+                    <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                      <meta expr:content='data:post.authorProfileUrl' itemprop='url'/>
+                      <a expr:href='data:post.authorProfileUrl' rel='author' title='author profile'>
+                        <span itemprop='name'><data:post.author/></span>
+                      </a>
+                    </span>
+                  <b:else/>
+                    <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                      <span itemprop='name'><data:post.author/></span>
+                    </span>
+                  </b:if>
+                </b:if>
+              </span>
+
+              <span class='post-timestamp'>
+                <b:if cond='data:top.showTimestamp'>
+                  <data:top.timestampLabel/>
+                  <b:if cond='data:post.url'>
+                    <meta expr:content='data:post.url.canonical' itemprop='url'/>
+                    <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601' itemprop='datePublished'><data:post.timestamp/></abbr></a>
+                  </b:if>
+                </b:if>
+              </span>
+
+              <span class='post-comment-link'>
+                <b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                                  and data:post.allowComments' data='post' name='comment_count_picker'/>
+              </span>
+            </div>
+
+            <div class='post-footer-line post-footer-line-2'>
+              <b:if cond='data:top.showMobileShare'>
+                <div class='mobile-link-button goog-inline-block' id='mobile-share-button'>
+                  <a href='javascript:void(0);'><data:shareMsg/></a>
+                </div>
+              </b:if>
+            </div>
+
+          </div>
+        </div>
+
+        <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
+      </div>
+    </div>
+  </div>
+</b:includable>
+            <b:includable id='nextprev'>
+  <div class='blog-pager' id='blog-pager'>
+    <b:if cond='data:newerPageUrl'>
+      <span id='blog-pager-newer-link'>
+      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
+      </span>
+    </b:if>
+
+    <b:if cond='data:olderPageUrl'>
+      <span id='blog-pager-older-link'>
+      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+      </span>
+    </b:if>
+
+    <a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+
+    <b:if cond='data:mobileLinkUrl'>
+      <div class='blog-mobile-link'>
+        <a expr:href='data:mobileLinkUrl'><data:mobileLinkMsg/></a>
+      </div>
+    </b:if>
+
+  </div>
+  <div class='clear'/>
+</b:includable>
+            <b:includable id='pagination'>
+              <b:if cond='data:newerPageUrl or data:olderPageUrl'><nav aria-label='Yazı sayfaları' class='pager'><b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl' rel='prev'>&#8592; Daha yeni yazılar</a></b:if><b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl' rel='next'>Daha eski yazılar &#8594;</a></b:if></nav></b:if>
+            </b:includable>
+            <b:includable id='post' var='post'>
+  <div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
+    <b:if cond='data:post.firstImageUrl'>
+      <meta expr:content='data:post.firstImageUrl' itemprop='image_url'/>
+    </b:if>
+    <meta expr:content='data:blog.blogId' itemprop='blogId'/>
+    <meta expr:content='data:post.id' itemprop='postId'/>
+
+    <a expr:name='data:post.id'/>
+    <b:if cond='data:post.title'>
+      <h3 class='post-title entry-title' itemprop='name'>
+      <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
+        <a expr:href='data:post.link ? data:post.link : data:post.url'><data:post.title/></a>
+      <b:else/>
+        <data:post.title/>
+      </b:if>
+      </h3>
+    </b:if>
+
+    <div class='post-header'>
+    <div class='post-header-line-1'/>
+    </div>
+
+    <!-- Then use the post body as the schema.org description, for good G+/FB snippeting. -->
+    <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' expr:itemprop='(data:blog.metaDescription ? &quot;&quot; : &quot;description &quot;) + &quot;articleBody&quot;'>
+      <data:post.body/>
+      <div style='clear: both;'/> <!-- clear for photos floats -->
+    </div>
+
+    <b:if cond='data:post.hasJumpLink'>
+      <div class='jump-link'>
+        <a expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
+      </div>
+    </b:if>
+
+    <div class='post-footer'>
+    <div class='post-footer-line post-footer-line-1'>
+      <span class='post-author vcard'>
+        <b:if cond='data:top.showAuthor'>
+          <data:top.authorLabel/>
+            <b:if cond='data:post.authorProfileUrl'>
+              <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                <meta expr:content='data:post.authorProfileUrl' itemprop='url'/>
+                <a class='g-profile' expr:href='data:post.authorProfileUrl' rel='author' title='author profile'>
+                  <span itemprop='name'><data:post.author/></span>
+                </a>
+              </span>
+            <b:else/>
+              <span class='fn' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+                <span itemprop='name'><data:post.author/></span>
+              </span>
+            </b:if>
+        </b:if>
+      </span>
+
+      <span class='post-timestamp'>
+        <b:if cond='data:top.showTimestamp'>
+          <data:top.timestampLabel/>
+          <b:if cond='data:post.url'>
+            <meta expr:content='data:post.url.canonical' itemprop='url'/>
+            <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601' itemprop='datePublished'><data:post.timestamp/></abbr></a>
+          </b:if>
+        </b:if>
+      </span>
+
+      <span class='post-comment-link'>
+        <b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                          and data:post.allowComments' data='post' name='comment_count_picker'/>
+      </span>
+
+      <span class='post-icons'>
+        <!-- email post links -->
+        <b:if cond='data:post.emailPostUrl'>
+          <span class='item-action'>
+          <a expr:href='data:post.emailPostUrl' expr:title='data:top.emailPostMsg'>
+            <img alt='' class='icon-action' height='13' src='https://resources.blogblog.com/img/icon18_email.gif' width='18'/>
+          </a>
+          </span>
+        </b:if>
+
+        <!-- quickedit pencil -->
+        <b:include data='post' name='postQuickEdit'/>
+      </span>
+
+      <!-- share buttons -->
+      <div class='post-share-buttons goog-inline-block'>
+        <b:include cond='data:post.sharePostUrl' data='post' name='shareButtons'/>
+      </div>
+
+      </div>
+
+      <div class='post-footer-line post-footer-line-2'>
+      <span class='post-labels'>
+        <b:if cond='data:top.showPostLabels and data:post.labels'>
+          <data:postLabelsLabel/>
+          <b:loop values='data:post.labels' var='label'>
+            <a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
+          </b:loop>
+        </b:if>
+      </span>
+      </div>
+
+      <div class='post-footer-line post-footer-line-3'>
+      <span class='post-location'>
+        <b:if cond='data:top.showLocation and data:post.location'>
+          <data:postLocationLabel/>
+          <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+        </b:if>
+      </span>
+      </div>
+      <b:if cond='data:post.authorAboutMe'>
+        <div class='author-profile' itemprop='author' itemscope='itemscope' itemtype='http://schema.org/Person'>
+          <b:if cond='data:post.authorPhoto.url'>
+            <img expr:src='data:post.authorPhoto.url' itemprop='image' width='50px'/>
+          </b:if>
+          <div>
+            <a class='g-profile' expr:href='data:post.authorProfileUrl' itemprop='url' rel='author' title='author profile'>
+              <span itemprop='name'><data:post.author/></span>
+            </a>
+          </div>
+          <span itemprop='description'><data:post.authorAboutMe/></span>
+        </div>
+      </b:if>
+    </div>
+  </div>
+</b:includable>
+            <b:includable id='postQuickEdit' var='post'>
+  <b:if cond='data:post.editUrl'>
+    <span expr:class='&quot;item-control &quot; + data:post.adminClass'>
+      <a expr:href='data:post.editUrl' expr:title='data:top.editPostMsg'>
+        <img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+      </a>
+    </span>
+  </b:if>
+</b:includable>
+            <b:includable id='shareButtons' var='post'>
+  <b:if cond='data:top.showEmailButton'><a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'><span class='share-button-link-text'><data:top.emailThisMsg/></span></a></b:if><b:if cond='data:top.showBlogThisButton'><a class='goog-inline-block share-button sb-blog' expr:href='data:post.sharePostUrl + &quot;&amp;target=blog&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' expr:title='data:top.blogThisMsg' target='_blank'><span class='share-button-link-text'><data:top.blogThisMsg/></span></a></b:if><b:if cond='data:top.showTwitterButton'><a class='goog-inline-block share-button sb-twitter' expr:href='data:post.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToTwitterMsg/></span></a></b:if><b:if cond='data:top.showFacebookButton'><a class='goog-inline-block share-button sb-facebook' expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToFacebookMsg/></span></a></b:if><b:if cond='data:top.showPinterestButton'><a class='goog-inline-block share-button sb-pinterest' expr:href='data:post.sharePostUrl + &quot;&amp;target=pinterest&quot;' expr:title='data:top.shareToPinterestMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToPinterestMsg/></span></a></b:if>
+</b:includable>
+            <b:includable id='status-message'>
+  <b:if cond='data:navMessage'>
+  <div class='status-msg-wrap'>
+    <div class='status-msg-body'>
+      <data:navMessage/>
+    </div>
+    <div class='status-msg-border'>
+      <div class='status-msg-bg'>
+        <div class='status-msg-hidden'><data:navMessage/></div>
+      </div>
+    </div>
+  </div>
+  <div style='clear: both;'/>
+  </b:if>
+</b:includable>
+            <b:includable id='tags' var='post'><b:if cond='data:post.labels'><div class='labels'><b:loop values='data:post.labels' var='label'><a expr:href='data:label.url' rel='tag'><data:label.name/></a></b:loop></div></b:if></b:includable>
+            <b:includable id='threaded-comment-form' var='post'>
+  <div class='comment-form'>
+    <a name='comment-form'/>
+    <b:if cond='data:mobile'>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+    <b:else/>
+      <p><data:blogCommentMessage/></p>
+      <data:blogTeamBlogMessage/>
+      <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+    </b:if>
+    <data:post.cmtfpIframe/>
+    <script type='text/javascript'>
+      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+    </script>
+  </div>
+</b:includable>
+            <b:includable id='threaded_comment_js' var='post'>
+  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+
+  <script type='text/javascript'>
+    (function() {
+      var items = <data:post.commentJso/>;
+      var msgs = <data:post.commentMsgs/>;
+      var config = <data:post.commentConfig/>;
+
+// <![CDATA[
+      var cursor = null;
+      if (items && items.length > 0) {
+        cursor = parseInt(items[items.length - 1].timestamp) + 1;
+      }
+
+      var bodyFromEntry = function(entry) {
+        var text = (entry &&
+                    ((entry.content && entry.content.$t) ||
+                     (entry.summary && entry.summary.$t))) ||
+            '';
+        if (entry && entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+              return '<span class="deleted-comment">' + text + '</span>';
+            }
+          }
+        }
+        return text;
+      }
+
+      var parse = function(data) {
+        cursor = null;
+        var comments = [];
+        if (data && data.feed && data.feed.entry) {
+          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+            var comment = {};
+            // comment ID, parsed out of the original id format
+            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+            comment.id = id ? id[2] : null;
+            comment.body = bodyFromEntry(entry);
+            comment.timestamp = Date.parse(entry.published.$t) + '';
+            if (entry.author && entry.author.constructor === Array) {
+              var auth = entry.author[0];
+              if (auth) {
+                comment.author = {
+                  name: (auth.name ? auth.name.$t : undefined),
+                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                };
+              }
+            }
+            if (entry.link) {
+              if (entry.link[2]) {
+                comment.link = comment.permalink = entry.link[2].href;
+              }
+              if (entry.link[3]) {
+                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                if (pid && pid[1]) {
+                  comment.parentId = pid[1];
+                }
+              }
+            }
+            comment.deleteclass = 'item-control blog-admin';
+            if (entry.gd$extendedProperty) {
+              for (var k in entry.gd$extendedProperty) {
+                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+                  comment.displayTime = entry.gd$extendedProperty[k].value;
+                }
+              }
+            }
+            comments.push(comment);
+          }
+        }
+        return comments;
+      };
+
+      var paginator = function(callback) {
+        if (hasMore()) {
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          if (cursor) {
+            url += '&published-min=' + new Date(cursor).toISOString();
+          }
+          window.bloggercomments = function(data) {
+            var parsed = parse(data);
+            cursor = parsed.length < 50 ? null
+                : parseInt(parsed[parsed.length - 1].timestamp) + 1
+            callback(parsed);
+            window.bloggercomments = null;
+          }
+          url += '&callback=bloggercomments';
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      };
+      var hasMore = function() {
+        return !!cursor;
+      };
+      var getMeta = function(key, comment) {
+        if ('iswriter' == key) {
+          var matches = !!comment.author
+              && comment.author.name == config.authorName
+              && comment.author.profileUrl == config.authorUrl;
+          return matches ? 'true' : '';
+        } else if ('deletelink' == key) {
+          return config.baseUri + '/comment/delete/'
+               + config.blogId + '/' + comment.id;
+        } else if ('deleteclass' == key) {
+          return comment.deleteclass;
+        }
+        return '';
+      };
+
+      var replybox = null;
+      var replyUrlParts = null;
+      var replyParent = undefined;
+
+      var onReply = function(commentId, domId) {
+        if (replybox == null) {
+          // lazily cache replybox, and adjust to suit this style:
+          replybox = document.getElementById('comment-editor');
+          if (replybox != null) {
+            replybox.height = '250px';
+            replybox.style.display = 'block';
+            replyUrlParts = replybox.src.split('#');
+          }
+        }
+        if (replybox && (commentId !== replyParent)) {
+          replybox.src = '';
+          document.getElementById(domId).insertBefore(replybox, null);
+          replybox.src = replyUrlParts[0]
+              + (commentId ? '&parentID=' + commentId : '')
+              + '#' + replyUrlParts[1];
+          replyParent = commentId;
+        }
+      };
+
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
+
+      // Configure commenting API:
+      var configJso = {
+        'maxDepth': config.maxThreadDepth
+      };
+      var provider = {
+        'id': config.postId,
+        'data': items,
+        'loadNext': paginator,
+        'hasMore': hasMore,
+        'getMeta': getMeta,
+        'onReply': onReply,
+        'rendered': true,
+        'initComment': targetComment,
+        'initReplyThread': startThread,
+        'config': configJso,
+        'messages': msgs
+      };
+
+      var render = function() {
+        if (window.goog && window.goog.comments) {
+          var holder = document.getElementById('comment-holder');
+          window.goog.comments.render(holder, provider);
+        }
+      };
+
+      // render now, or queue to render when library loads:
+      if (window.goog && window.goog.comments) {
+        render();
+      } else {
+        window.goog = window.goog || {};
+        window.goog.comments = window.goog.comments || {};
+        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+        window.goog.comments.loadQueue.push(render);
+      }
+    })();
+// ]]>
+  </script>
+</b:includable>
+            <b:includable id='threaded_comments' var='post'>
+  <div class='comments' id='comments'>
+    <a name='comments'/>
+    <h4><data:post.commentLabelFull/>:</h4>
+
+    <div class='comments-content'>
+      <b:include cond='data:post.embedCommentForm' data='post' name='threaded_comment_js'/>
+      <div id='comment-holder'>
+         <data:post.commentHtml/>
+      </div>
+    </div>
+
+    <p class='comment-footer'>
+      <b:if cond='data:post.allowNewComments'>
+        <b:include data='post' name='threaded-comment-form'/>
+      <b:else/>
+        <data:post.noNewCommentsText/>
+      </b:if>
+    </p>
+
+    <b:if cond='data:showCmtPopup'>
+      <div id='comment-popup'>
+        <iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
+        </iframe>
+      </div>
+    </b:if>
+
+    <div id='backlinks-container'>
+    <div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
+    </div>
+    </div>
+  </div>
+</b:includable>
+          </b:widget>
+        </b:section>
+      </main>
+      <b:if cond='data:view.isHomepage'>
+      <aside aria-label='Blog ve kategoriler' class='sidebar'>
+        <section class='side-box'><h2>Konuları Keşfedin</h2><ul class='category-list' id='rt-topic-list'>
+          <li data-topic='Borsa'><a expr:href='data:blog.homepageUrl + &quot;search/label/Borsa&quot;'>Borsa<span aria-hidden='true'>&#8599;</span></a></li>
+          <li data-topic='Fon'><a expr:href='data:blog.homepageUrl + &quot;search/label/Fon&quot;'>Fon<span aria-hidden='true'>&#8599;</span></a></li>
+          <li data-topic='Halka Arz'><a expr:href='data:blog.homepageUrl + &quot;search/label/Halka%20Arz&quot;'>Halka Arz<span aria-hidden='true'>&#8599;</span></a></li>
+          <li data-topic='Güncel Analizler'><a expr:href='data:blog.homepageUrl + &quot;search/label/G%C3%BCncel%20Analizler&quot;'>Güncel Analizler<span aria-hidden='true'>&#8599;</span></a></li>
+        </ul></section>
+        <section class='side-box about-box'><div class='eyebrow'>RASYOTREND HAKKINDA</div><h2>Bilgiyle başlayın.</h2><p>Finans dünyasını anlamak isteyenler için analizler, piyasa gündemi ve finansal okuryazarlık üzerine paylaşımlar.</p></section>
+        <b:section class='sidebar-widgets' id='sidebar' showaddelement='yes'/>
+        <p class='side-note'><strong>Önce öğren, sonra değerlendir.</strong>İçeriklerimizi kendi araştırmanızın başlangıç noktası olarak kullanabilirsiniz.</p>
+      </aside>
+      </b:if>
+    </div>
+  </div>
+  <footer class='footer'><div class='wrap'><div class='footer-top'><a class='brand' expr:href='data:blog.homepageUrl'><span>RASYO<em>TREND</em></span></a><a expr:href='data:blog.homepageUrl'>Ana sayfaya dön &#8593;</a></div><p>Bu sitedeki içerikler genel bilgilendirme amacı taşır; yatırım tavsiyesi değildir. Yatırım kararlarınızı kendi araştırmanız ve risk tercihleriniz doğrultusunda değerlendirin.</p><div class='footer-bottom'>&#169; RASYOTREND &#183; Tüm hakları saklıdır.</div></div></footer>
+  <script type='text/javascript'>//<![CDATA[
+  (function () {
+    var current = window.location.pathname.replace(/\/$/, '') || '/';
+    document.querySelectorAll('.nav-list a').forEach(function (link) {
+      if ((new URL(link.href).pathname.replace(/\/$/, '') || '/') === current) link.setAttribute('aria-current', 'page');
+    });
+  }());
+
+  (function () {
+    'use strict';
+    var panel = document.getElementById('news-slider');
+    if (!panel) return;
+    var track = panel.querySelector('.news-track');
+    var dots = panel.querySelector('.news-dots');
+    var controls = panel.querySelector('.news-controls');
+    var status = panel.querySelector('.news-status');
+    var message = panel.querySelector('.news-empty');
+    function showMessage(title, detail) {
+      message.querySelector('h3').textContent = title;
+      message.querySelector('p').textContent = detail;
+      message.hidden = false; track.hidden = true; controls.hidden = true;
+    }
+    showMessage('Öne çıkan içerikler yükleniyor…', 'İçerikler hazırlanıyor.');
+    var slides = [], index = 0, scrollTimer;
+    function safeURL(value) {
+      if (typeof value !== 'string' || !value.trim()) return '';
+      try { var url = new URL(value, window.location.href); return /^https?:$/.test(url.protocol) ? url.href : ''; } catch (error) { return ''; }
+    }
+    function element(tag, className, text) {
+      var node = document.createElement(tag); node.className = className;
+      if (text !== undefined) node.textContent = text; return node;
+    }
+    function sync() {
+      slides.forEach(function (slide, i) {
+        var active = i === index;
+        slide.setAttribute('aria-hidden', String(!active));
+        slide.querySelectorAll('a').forEach(function (link) { link.tabIndex = active ? 0 : -1; });
+        dots.children[i].setAttribute('aria-current', String(active));
+      });
+      status.textContent = (index + 1) + ' / ' + slides.length + ' — ' + slides[index].querySelector('.news-title').textContent;
+    }
+    function go(next) {
+      index = (next + slides.length) % slides.length;
+      track.scrollTo({ left: index * track.clientWidth, behavior: 'auto' });
+      sync();
+    }
+    var controller = new AbortController();
+    var timeout = window.setTimeout(function () { controller.abort(); }, 8000);
+    fetch(panel.getAttribute('data-feed-url'), { signal: controller.signal, credentials: 'same-origin' })
+      .then(function (response) { if (!response.ok) throw new Error('Feed unavailable'); return response.json(); })
+      .then(function (data) {
+        var entries = data && data.feed && data.feed.entry;
+        if (!Array.isArray(entries)) entries = [];
+        entries.slice(0, 5).forEach(function (entry) {
+          if (!entry || !Array.isArray(entry.link)) return;
+          var alternate = entry.link.find(function (link) { return link.rel === 'alternate'; });
+          var href = safeURL(alternate && alternate.href);
+          if (!href) return;
+          var title = entry.title && entry.title.$t || 'Öne çıkan içerik';
+          var slide = element('article', 'news-slide');
+          slide.setAttribute('role', 'group'); slide.setAttribute('aria-roledescription', 'slayt');
+          var media = element('div', 'news-media'); media.setAttribute('aria-hidden', 'true');
+          var imageURL = safeURL(entry.media$thumbnail && entry.media$thumbnail.url);
+          if (imageURL) {
+            imageURL = imageURL
+              .replace(/\/s\d+(?:-c)?\//, '/s1200/')
+              .replace(/=s\d+(?:-c)?(?:$|&)/, '=s1200$1');
+          }
+          if (imageURL) {
+            var img = element('img', ''); img.alt = ''; img.decoding = 'async';
+            img.loading = slides.length === 0 ? 'eager' : 'lazy';
+            img.addEventListener('error', function () { img.remove(); }); img.src = imageURL; media.appendChild(img);
+          }
+          var copy = element('div', 'news-copy'); copy.appendChild(element('div', 'eyebrow', 'RASYOTREND'));
+          var heading = element('h3', 'news-title slider-title-sr-only', title); copy.appendChild(heading);
+          var date = new Date(entry.published && entry.published.$t);
+          if (!isNaN(date.getTime())) { var time = element('time', 'news-date', date.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' })); time.dateTime = date.toISOString(); time.style.display = 'block'; copy.appendChild(time); }
+          var read = element('a', 'news-read', 'Yazıyı oku ↗'); read.href = href; copy.appendChild(read);
+          slide.appendChild(media); slide.appendChild(copy); track.appendChild(slide); slides.push(slide);
+          var position = slides.length - 1;
+          var dot = element('button', 'news-dot'); dot.type = 'button'; dot.setAttribute('aria-label', (position + 1) + '. içeriği göster'); dot.setAttribute('aria-controls', 'news-track'); dot.addEventListener('click', function () { go(position); }); dots.appendChild(dot);
+        });
+        if (!slides.length) {
+          showMessage('Henüz öne çıkan içerik yok', 'Öne çıkan içerikler yayımlandığında burada gösterilecek.');
+          return;
+        }
+        slides.forEach(function (slide, i) { slide.setAttribute('aria-label', (i + 1) + ' / ' + slides.length); });
+        message.hidden = true; track.hidden = false; controls.hidden = slides.length < 2; sync();
+        panel.querySelector('.news-prev').addEventListener('click', function () { go(index - 1); });
+        panel.querySelector('.news-next').addEventListener('click', function () { go(index + 1); });
+        track.addEventListener('keydown', function (event) {
+          if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); go(index + (event.key === 'ArrowRight' ? 1 : -1)); }
+        });
+        track.addEventListener('scroll', function () {
+          window.clearTimeout(scrollTimer); scrollTimer = window.setTimeout(function () {
+            index = Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / track.clientWidth))); sync();
+          }, 100);
+        }, { passive: true });
+        window.addEventListener('resize', function () { go(index); });
+      })
+      .catch(function () { showMessage('Öne çıkan içerikler şu anda yüklenemiyor', 'Lütfen daha sonra tekrar deneyin.'); })
+      .finally(function () { window.clearTimeout(timeout); });
+  }());
+
+  (function () {
+    'use strict';
+    var list = document.getElementById('rt-topic-list');
+    if (!list) return;
+
+    var items = Array.prototype.slice.call(list.querySelectorAll('li[data-topic]'));
+    var fixedLast = items.find(function (item) { return item.getAttribute('data-fixed') === 'last'; });
+    var dynamicItems = items.filter(function (item) { return item !== fixedLast; });
+
+    if (!dynamicItems.length) return;
+
+    var feedUrl = document.querySelector('link[rel="alternate"][type="application/atom+xml"]');
+    var baseFeed = feedUrl && feedUrl.href ? feedUrl.href : (window.location.origin + '/feeds/posts/default');
+    var separator = baseFeed.indexOf('?') === -1 ? '?' : '&';
+    var url = baseFeed + separator + 'alt=json&max-results=50&orderby=published';
+
+    fetch(url, { credentials: 'same-origin' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Feed unavailable');
+        return response.json();
+      })
+      .then(function (data) {
+        var entries = data && data.feed && data.feed.entry;
+        if (!Array.isArray(entries)) entries = [];
+
+        var latest = Object.create(null);
+
+        entries.forEach(function (entry) {
+          var published = entry && entry.published && entry.published.$t;
+          var time = published ? Date.parse(published) : NaN;
+          if (!isFinite(time)) return;
+
+          var categories = Array.isArray(entry.category) ? entry.category : [];
+          categories.forEach(function (category) {
+            var term = category && category.term;
+            if (!term) return;
+            if (latest[term] === undefined || time > latest[term]) latest[term] = time;
+          });
+        });
+
+        dynamicItems.sort(function (a, b) {
+          var aTopic = a.getAttribute('data-topic');
+          var bTopic = b.getAttribute('data-topic');
+          var aTime = latest[aTopic] || 0;
+          var bTime = latest[bTopic] || 0;
+
+          if (aTime !== bTime) return bTime - aTime;
+          return items.indexOf(a) - items.indexOf(b);
+        });
+
+        dynamicItems.forEach(function (item) { list.appendChild(item); });
+        if (fixedLast) list.appendChild(fixedLast);
+      })
+      .catch(function () {
+        /* Feed alınamazsa mevcut sabit sıra korunur. */
+      });
+  }());
+
+  (function () {
+    /* v015: Masaüstü dropdownlar yalnızca CSS :hover ile çalışır.
+       JavaScript sadece mobil <details> menülerini yönetir. */
+    var mobileMenus = document.querySelectorAll('.mobile-menu .nav-dropdown');
+
+    mobileMenus.forEach(function (menu) {
+      var summary = menu.querySelector('summary');
+
+      if (menu.querySelector('[aria-current="page"]') || window.location.pathname.replace(/\/$/, '') === '/search/label/' + encodeURIComponent(menu.getAttribute('data-category'))) {
+        menu.classList.add('is-current');
+      }
+
+      menu.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && menu.open) {
+          menu.open = false;
+          summary.focus();
+          event.stopPropagation();
+        }
+      });
+    });
+
+    document.addEventListener('click', function (event) {
+      mobileMenus.forEach(function (menu) {
+        if (!menu.contains(event.target)) menu.open = false;
+      });
+    });
+
+    /* Masaüstünde yalnızca aktif kategori vurgusu için sınıf eklenir;
+       açma/kapatma davranışı JavaScript kullanmaz. */
+    document.querySelectorAll('.desktop-dropdown').forEach(function (menu) {
+      if (menu.querySelector('[aria-current="page"]') || window.location.pathname.replace(/\/$/, '') === '/search/label/' + encodeURIComponent(menu.getAttribute('data-category'))) {
+        menu.classList.add('is-current');
+      }
+    });
+  }());
+  //]]></script>
+</body>
+</html><!-- RASYOTREND v040 - DOSYA SONU -->
