@@ -12,6 +12,12 @@ XML_SHA = '94b777d41530571558abc42ec371932d06f4dc0253a2ee7e6955e591ba57e513'
 
 
 class CanliEntegrasyonTesti(unittest.TestCase):
+    def test_docs_public_yayin_agaci(self):
+        self.assertTrue((KOK / 'docs/.nojekyll').is_file())
+        self.assertTrue((KOK / 'docs/index.html').is_file())
+        self.assertTrue((KOK / 'docs/assets/v1.0.0').is_dir())
+        self.assertFalse((KOK / 'pages').exists())
+
     def test_merkezi_ortam_ayari(self):
         metin = (KOK / 'ortak/js/ortam-ayarlari.js').read_text()
         self.assertIn(PRODUCTION, metin)
@@ -59,9 +65,9 @@ class CanliEntegrasyonTesti(unittest.TestCase):
         self.assertEqual(xml.read_bytes(), baslangic)
 
     def test_immutable_manifest_tum_dosyalari_kapsar(self):
-        yayin = KOK / 'pages/assets/v1.0.0'
+        yayin = KOK / 'docs/assets/v1.0.0'
         manifest = json.loads((yayin / 'manifest.json').read_text())
-        beklenen = {str(p.relative_to(KOK / 'pages')) for p in yayin.rglob('*') if p.is_file() and p.name != 'manifest.json'}
+        beklenen = {str(p.relative_to(KOK / 'docs')) for p in yayin.rglob('*') if p.is_file() and p.name != 'manifest.json'}
         self.assertEqual(set(manifest['dosyalar']), beklenen)
         self.assertEqual(manifest['surum'], '1.0.0')
 
