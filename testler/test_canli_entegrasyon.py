@@ -17,6 +17,7 @@ class CanliEntegrasyonTesti(unittest.TestCase):
         self.assertTrue((KOK / 'docs/index.html').is_file())
         self.assertTrue((KOK / 'docs/assets/v1.0.0').is_dir())
         self.assertFalse((KOK / 'pages').exists())
+        self.assertTrue((KOK / 'docs/assets/v1.0.0/sayfalar/pilot-loader/index.html').is_file())
 
     def test_merkezi_ortam_ayari(self):
         metin = (KOK / 'ortak/js/ortam-ayarlari.js').read_text()

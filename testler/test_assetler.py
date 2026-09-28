@@ -36,6 +36,23 @@ class AssetTesti(unittest.TestCase):
                     str(goreli),
                 )
 
+    def test_pilot_html_bilincli_production_farki(self):
+        kaynak = (KOK / 'sayfalar/pilot-loader/index.html').read_text()
+        yayin = (YAYIN / 'sayfalar/pilot-loader/index.html').read_text()
+        self.assertNotEqual(kaynak, yayin)
+        self.assertIn("params.get('rt-mod') === 'production'", kaynak)
+        self.assertNotIn("params.get('rt-mod')", yayin)
+        self.assertIn("RasyoTrendOrtam.pilot('production')", yayin)
+
+        production_root = 'https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/'
+        for dosya in ('ortam-ayarlari.js', 'yardimcilar.js', 'veri-istemcisi.js', 'sayfa-loader.js'):
+            self.assertIn(
+                production_root + 'ortak/js/' + dosya + '?rt-surum=1.0.0',
+                yayin,
+            )
+        for dosya in ('pilot.css', 'pilot.js', 'ornek.json'):
+            self.assertTrue((YAYIN / 'sayfalar/pilot-loader' / dosya).is_file())
+
     def test_degisken_surum_yok(self):
         for dosya in (KOK / 'docs').rglob('*'):
             if dosya.is_file():
