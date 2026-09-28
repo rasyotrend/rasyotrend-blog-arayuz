@@ -1,0 +1,1 @@
+(function(global){'use strict';function hucre(satir,deger){var td=document.createElement('td');td.textContent=deger===null||deger===undefined?'Veri yok':String(deger);satir.appendChild(td);}global.RasyoTrend=global.RasyoTrend||{};global.RasyoTrend.tablo={hucre:hucre};}(window));

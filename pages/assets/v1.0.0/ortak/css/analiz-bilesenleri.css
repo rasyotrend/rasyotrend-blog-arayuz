@@ -1,0 +1,1 @@
+.rt-analiz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--bosluk-4)}.rt-deger--pozitif{color:var(--renk-pozitif)}.rt-deger--negatif{color:var(--renk-negatif)}.rt-deger--eksik{color:var(--renk-soluk)}

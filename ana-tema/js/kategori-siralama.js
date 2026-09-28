@@ -1,0 +1,1 @@
+(function(global){'use strict';function sirala(elemanlar,sayilar){return elemanlar.slice().sort(function(a,b){return (sayilar[b]||0)-(sayilar[a]||0);});}global.RasyoTrendTema=global.RasyoTrendTema||{};global.RasyoTrendTema.kategori={sirala:sirala};}(window));

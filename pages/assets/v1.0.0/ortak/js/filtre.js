@@ -1,0 +1,1 @@
+(function(global){'use strict';function filtrele(liste,alan,deger){return liste.filter(function(kayit){return kayit&&kayit[alan]===deger;});}global.RasyoTrend=global.RasyoTrend||{};global.RasyoTrend.filtre={filtrele:filtrele};}(window));

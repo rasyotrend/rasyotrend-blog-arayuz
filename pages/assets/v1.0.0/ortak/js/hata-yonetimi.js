@@ -1,0 +1,1 @@
+(function(global){'use strict';function goster(kok,mesaj){if(!kok)return;kok.setAttribute('data-durum','hata');kok.setAttribute('aria-live','polite');kok.textContent=mesaj||'İçerik yüklenemedi.';}global.RasyoTrend=global.RasyoTrend||{};global.RasyoTrend.hata={goster:goster};}(window));
