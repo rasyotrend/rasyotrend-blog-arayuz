@@ -1,6 +1,6 @@
 # Frontend mimarisi v1 — Genel sonuç
 
-> GitHub PR #2 mevcut uzak geçmişte tek commit olarak görünür; aşama bazlı bağımsız revert varsayılmaz ve geçmiş yeniden yazılmaz.
+> GitHub PR #2 şu anda iki commit içerir; buna rağmen aşama bazlı bağımsız revert varsayılmaz ve geçmiş yeniden yazılmaz.
 ## 1. Yönetici özeti
 Sekiz mimari aşamanın altyapısı ve inceleme revizyonları tamamlandı; production CSS/JS dışsallaştırması veya canlı deploy yapılmadı.
 ## 2. Başlangıç durumu
@@ -8,7 +8,7 @@ Tek çalışan v040 Blogger XML'i ve kısa README vardı.
 ## 3. Aşama 1 sonucu
 Tema envanteri ve statik regresyon paketi hazırlandı.
 ## 4. Aşama 2 sonucu
-Mevcut koyu değerlerle ortak Türkçe ASCII token sözlüğü oluşturuldu.
+Çalışan temadan alınan/türetilen tokenlar ile yeni frontend mimarisi için önerilen tokenlar ayrı sınıflar halinde dokümante edilerek ortak Türkçe ASCII token sözlüğü oluşturuldu.
 ## 5. Aşama 3 sonucu
 Tema, ortak, özel sayfa, test, rapor ve yayın dizinleri ayrıldı.
 ## 6. Aşama 4 sonucu
