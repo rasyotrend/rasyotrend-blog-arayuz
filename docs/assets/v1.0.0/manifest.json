@@ -19,10 +19,14 @@
     "assets/v1.0.0/ortak/js/analiz-sayfasi.js": "c8c9d1efa87d93a58c44c82ced7589bd244b2ea65a0a1111a2d233c0e0f969db",
     "assets/v1.0.0/ortak/js/filtre.js": "b68d2bb8f7517d610d54b458d34af4e17139e4f27432f5ba010ffaac1a8d2a29",
     "assets/v1.0.0/ortak/js/hata-yonetimi.js": "c0c907f3a327325c069e1010dbdb6fb6ac35430753892a310f4e7a9dbed4893c",
-    "assets/v1.0.0/ortak/js/sayfa-loader.js": "d2b7154104c0fec6aee2044acb32932842dd98ea6d9a15e61344c73f37c6ebd6",
+    "assets/v1.0.0/ortak/js/ortam-ayarlari.js": "8010761956f39b7fe8a0f738ba736134283d7f1571875884f0f1fe33888482e9",
+    "assets/v1.0.0/ortak/js/sayfa-loader.js": "0053584619460f79b0debfecff5ecaf367d6b41182ff20640943bcd3ac0323eb",
     "assets/v1.0.0/ortak/js/siralama.js": "aca24109e9a725eb8a86627290dbc5115e66c8bd4fb10f6e63f2feb2407dd80f",
     "assets/v1.0.0/ortak/js/tablo.js": "a9004bd527916f294a8962a7a605eee0ef298c66c02ca37de9ca5ab64ecc5991",
     "assets/v1.0.0/ortak/js/veri-istemcisi.js": "25f74844392eceb4d0524e4c4f1a41c39cd72f602fa54d4961e05c5f4a632a6d",
-    "assets/v1.0.0/ortak/js/yardimcilar.js": "e2f6494adcd0842575ce90fbcb818ad9a9b7ac00dce5328fa348b0123332c5cc"
+    "assets/v1.0.0/ortak/js/yardimcilar.js": "e2f6494adcd0842575ce90fbcb818ad9a9b7ac00dce5328fa348b0123332c5cc",
+    "assets/v1.0.0/sayfalar/pilot-loader/ornek.json": "ef1f842c6d8a5d08db176d4f01d81288adc22cc9dec2d1a5a55696df3d941d3a",
+    "assets/v1.0.0/sayfalar/pilot-loader/pilot.css": "a85579184c27a0ecba110e82fc02d084499331d9b1c68a27a83576fd065383f4",
+    "assets/v1.0.0/sayfalar/pilot-loader/pilot.js": "15dec66f1753f70d9ff1153eebf9bec76fd61ca6ca40390b76f0b9f61df4910b"
   }
 }

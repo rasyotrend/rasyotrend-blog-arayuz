@@ -1,6 +1,6 @@
 # GitHub Pages yayın sözleşmesi
 
-`pages/` branch/dizin tabanlı statik yayın köküdür; aktivasyon repository yöneticisinin manuel işlemidir. URL'ler sabit `v1.0.0` segmentini taşır; loader ayrıca sözleşmedeki semver değerini `rt-surum` parametresi olarak uygular ve farklı sürüm taşıyan URL'yi reddeder. Yeni sürüm yeni dizine kopyalanır; mevcut yayın immutable kabul edilir. Cache busting sürümle, rollback Blogger referansını önceki sürüme döndürerek yapılır.
+`docs/`, `Settings → Pages` ekranında `Source: Deploy from a branch`, `Branch: main`, `Folder: /docs` seçimiyle kullanılacak statik yayın köküdür; aktivasyon repository yöneticisinin manuel işlemidir. URL'ler sabit `v1.0.0` segmentini taşır; loader ayrıca sözleşmedeki semver değerini `rt-surum` parametresi olarak uygular ve farklı sürüm taşıyan URL'yi reddeder. Yeni sürüm yeni dizine kopyalanır; mevcut yayın immutable kabul edilir. Cache busting sürümle, rollback Blogger referansını önceki sürüme döndürerek yapılır.
 
 CSS, JavaScript ve JSON için yalnız `http:`, `https:` veya bunlara çözümlenen relative yollar kabul edilir; `javascript:`, `data:` ve diğer şemalar reddedilir. Production entegrasyonunda `izinliOriginler` listesi RasyoTrend ve onaylı Pages originleriyle sınırlandırılmalıdır. Harici asset hata verirse Blogger XML'deki first-render CSS, içerik ve inline davranış fallback olarak kalır.
 

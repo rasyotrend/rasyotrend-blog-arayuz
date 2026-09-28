@@ -33,3 +33,17 @@ assert.ok(ayar.veri.includes('rt-surum=1.0.0'));
 assert.throws(() => test.ayarlariCoz({surum: '1.0.0', css: [], js: 'javascript:x', veri: 'x.json'}));
 assert.throws(() => test.ayarlariCoz({surum: '1.0.0', css: [], js: 'x.js?rt-surum=2.0.0', veri: 'x.json'}));
 console.log('loader URL ve çoklu CSS testleri başarılı');
+
+vm.runInContext(fs.readFileSync('ortak/js/ortam-ayarlari.js', 'utf8'), context);
+const ortam = context.window.RasyoTrendOrtam;
+const yerel = ortam.pilot('local');
+const production = ortam.pilot('production');
+assert.strictEqual(ortam.surum, '1.0.0');
+assert.strictEqual(ortam.productionAssetRoot, 'https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/');
+assert.strictEqual(yerel.mod, 'local');
+assert.ok(yerel.js.startsWith('../../'));
+assert.strictEqual(production.mod, 'production');
+assert.ok(production.js.startsWith('https://'));
+assert.ok(production.css.length > 1);
+assert.strictEqual(production.timeout, 8000);
+console.log('local/production ortam ayarları başarılı');
