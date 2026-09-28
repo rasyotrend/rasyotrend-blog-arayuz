@@ -1,0 +1,1 @@
+(function(global){'use strict';function baslat(){document.querySelectorAll('.nav-list a').forEach(function(a){if(a.pathname===global.location.pathname)a.setAttribute('aria-current','page');});}global.RasyoTrendTema=global.RasyoTrendTema||{};global.RasyoTrendTema.navigasyon={baslat:baslat};}(window));

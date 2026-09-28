@@ -1,0 +1,27 @@
+<!-- RasyoTrend pilot entegrasyonu v1.0.0 — Blogger'a henüz uygulanmamıştır. -->
+<div id="rt-pilot" class="rt-panel" aria-live="polite" aria-busy="true">Pilot içerik yükleniyor…</div>
+<script>
+(function (global) {
+  'use strict';
+  var kok = document.getElementById('rt-pilot');
+  if (!kok || kok.getAttribute('data-bootstrap') === 'basladi') return;
+  kok.setAttribute('data-bootstrap', 'basladi');
+  global.rtPilotHata = function () {
+    kok.removeAttribute('aria-busy');
+    kok.setAttribute('data-durum', 'hata');
+    kok.textContent = 'Pilot içerik şu anda yüklenemiyor. Lütfen daha sonra tekrar deneyin.';
+  };
+}(window));
+</script>
+<script src="https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/ortak/js/asset-yapilandirmasi.js" onerror="rtPilotHata()"></script>
+<script src="https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/ortak/js/yardimcilar.js" onerror="rtPilotHata()"></script>
+<script src="https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/ortak/js/veri-istemcisi.js" onerror="rtPilotHata()"></script>
+<script src="https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/ortak/js/sayfa-loader.js" onerror="rtPilotHata()"></script>
+<script>
+(function () {
+  'use strict';
+  if (!window.RasyoTrendLoader || !window.RasyoTrendAsset) { window.rtPilotHata(); return; }
+  window.RasyoTrendLoader.yukle(window.RasyoTrendAsset.pilotAyari('production'))
+    .catch(function () { window.rtPilotHata(); });
+}());
+</script>

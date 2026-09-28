@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>RasyoTrend loader pilotu</title>
+</head>
+<body>
+  <main id="rt-pilot" class="rt-panel" aria-live="polite">Pilot yükleniyor…<noscript>Bu pilot JavaScript gerektirir.</noscript></main>
+  <script src="../../ortak/js/asset-yapilandirmasi.js"></script>
+  <script src="../../ortak/js/yardimcilar.js"></script>
+  <script src="../../ortak/js/veri-istemcisi.js"></script>
+  <script src="../../ortak/js/sayfa-loader.js"></script>
+  <script>
+    (function () {
+      var mod = new URLSearchParams(window.location.search).get('mod') === 'production' ? 'production' : 'local';
+      RasyoTrendLoader.yukle(RasyoTrendAsset.pilotAyari(mod)).catch(function () {
+        /* Teknik ayrıntı kullanıcıya basılmaz; loader okunabilir fallback yazar. */
+      });
+    }());
+  </script>
+</body>
+</html>

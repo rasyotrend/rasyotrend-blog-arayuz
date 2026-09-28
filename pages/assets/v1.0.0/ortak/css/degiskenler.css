@@ -1,0 +1,53 @@
+/** RasyoTrend ortak tasarım tokenları — v1.0.0. Tema henüz bu dosyaya bağımlı değildir. */
+:root {
+  /* A — Çalışan Blogger temasından birebir veya ölçek olarak türetilen değerler. */
+  color-scheme: dark;
+  --renk-zemin: #0e1621;
+  --renk-panel: #151f2c;
+  --renk-panel-yuksek: #1b2938;
+  --renk-metin: #c9d3df;
+  --renk-baslik: #e3eaf2;
+  --renk-soluk: #9daebe;
+  --renk-vurgu: #75cbbb;
+  --renk-sinir: #2a3a4a;
+  /* B — Yeni mimari için önerilen semantik değerler; XML'de kullanılıyor sayılmaz. */
+  --renk-pozitif: #75cbbb;
+  --renk-negatif: #e58a8a;
+  --renk-uyari: #e7bf69;
+
+  /* A: 8/12/16/24/32/48 değerleri temadaki mevcut aralıklardan türetilmiştir. */
+  --bosluk-1: 4px;
+  --bosluk-2: 8px;
+  --bosluk-3: 12px;
+  --bosluk-4: 16px;
+  --bosluk-5: 24px;
+  --bosluk-6: 32px;
+  --bosluk-7: 48px;
+
+  --radius-kucuk: 4px;
+  --radius-orta: 8px;
+  --radius-buyuk: 10px;
+  --radius-yuvarlak: 999px;
+  /* B: ortak bileşenler için önerilen yeni gölge ve tipografi sözlüğü. */
+  --golge-panel: 0 12px 30px rgba(0, 0, 0, 0.22);
+
+  --font-ailesi: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-boyut-kucuk: 0.75rem;
+  --font-boyut-normal: 1rem;
+  --font-agirlik-normal: 400;
+  --font-agirlik-orta: 650;
+  --font-agirlik-kalin: 800;
+  --satir-yuksekligi-dar: 1.25;
+  --satir-yuksekligi-normal: 1.6;
+
+  --katman-icerik: 1;
+  --katman-menu: 20;
+  --katman-modal: 100;
+  --gecis-hizli: 160ms ease;
+  --gecis-normal: 240ms ease;
+
+  /* CSS custom property medya sorgusunda kullanılamaz; dokümantasyon referansıdır. */
+  --kirpilim-mobil: 700px;
+  --kirpilim-tablet: 960px;
+  --kirpilim-genis: 1024px;
+}

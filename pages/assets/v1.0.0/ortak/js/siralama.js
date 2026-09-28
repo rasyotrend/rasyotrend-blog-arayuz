@@ -1,0 +1,1 @@
+(function(global){'use strict';function sirala(liste,alan,yon){return liste.slice().sort(function(a,b){var x=a&&a[alan],y=b&&b[alan];if(x===null||x===undefined)return 1;if(y===null||y===undefined)return -1;return(x<y?-1:x>y?1:0)*(yon==='azalan'?-1:1);});}global.RasyoTrend=global.RasyoTrend||{};global.RasyoTrend.siralama={sirala:sirala};}(window));

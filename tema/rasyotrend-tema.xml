@@ -36,6 +36,8 @@
   <meta expr:content='data:view.url.canonical' name='twitter:url'/>
   <!-- RASYOTREND | BLOG TEMASI | v040 | 2026-09-14 -->
   <!-- BUILD: V029-TEKNIK-ANALIZ-DUZELTME -->
+  <!-- Modül haritası v1.0.0: kritik first-render fallback aşağıdaki b:skin içinde kasıtlı olarak korunur. -->
+  <!-- Kaynak sorumlulukları: ortak/css ve ana-tema/css; harici asset başarısızlığı içeriği gizlemez. -->
   <b:skin><![CDATA[
 /* RASYOTREND v011 — responsive Blogger theme */
 :root{--ink:#102b46;--text:#334a5c;--muted:#607080;--accent:#087f80;--line:#dde7ec;--soft:#f3f7f9;--white:#fff}
@@ -1331,6 +1333,8 @@ body{background:var(--white);color:var(--text)}.masthead,.footer{background:#111
     </div>
   </div>
   <footer class='footer'><div class='wrap'><div class='footer-top'><a class='brand' expr:href='data:blog.homepageUrl'><span>RASYO<em>TREND</em></span></a><a expr:href='data:blog.homepageUrl'>Ana sayfaya dön &#8593;</a></div><p>Bu sitedeki içerikler genel bilgilendirme amacı taşır; yatırım tavsiyesi değildir. Yatırım kararlarınızı kendi araştırmanız ve risk tercihleriniz doğrultusunda değerlendirin.</p><div class='footer-bottom'>&#169; RASYOTREND &#183; Tüm hakları saklıdır.</div></div></footer>
+  <!-- Modül haritası v1.0.0: navigasyon, slider ve kategori davranışlarının çalışan inline fallback'i. -->
+  <!-- Harici modüller doğrulanana kadar Blogger bootstrap ve davranış eşdeğerliği burada korunur. -->
   <script type='text/javascript'>//<![CDATA[
   (function () {
     var current = window.location.pathname.replace(/\/$/, '') || '/';
