@@ -1,0 +1,1 @@
+(function(global){'use strict';function oranKorumali(){document.querySelectorAll('.news-media img').forEach(function(img){img.style.objectFit='contain';});}global.RasyoTrendTema=global.RasyoTrendTema||{};global.RasyoTrendTema.slider={oranKorumali:oranKorumali};}(window));

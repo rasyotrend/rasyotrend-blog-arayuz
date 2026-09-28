@@ -1,0 +1,1 @@
+{"sayfa":"degerleme-puan","surum":"1.0.0","kok":"#rt-degerleme-puan","css":["ortak/css/degiskenler.css","ortak/css/temel.css","ortak/css/bilesenler.css","ortak/css/analiz-bilesenleri.css"],"js":"ortak/js/analiz-sayfasi.js","veri":"PUBLIC_JSON_URL_GEREKLI","nullDavranisi":"veri-yok","hataDavranisi":"okunabilir-fallback"}
