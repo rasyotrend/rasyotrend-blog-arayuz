@@ -17,7 +17,7 @@ class AssetTesti(unittest.TestCase):
             self.assertEqual(hashlib.sha256(dosya.read_bytes()).hexdigest(), ozet, yol)
 
     def test_kaynak_yayin_byte_esitligi(self):
-        for kok_adi in ('ortak', 'ana-tema'):
+        for kok_adi in ('ortak', 'ana-tema', 'sayfalar'):
             kaynaklar = {
                 p.relative_to(KOK / kok_adi)
                 for p in (KOK / kok_adi).rglob('*')

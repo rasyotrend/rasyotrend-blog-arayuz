@@ -21,7 +21,8 @@
       css: cssListesi(ayar.css).map(cozumle),
       js: cozumle(ayar.js),
       veri: cozumle(ayar.veri),
-      izinliOriginler: ayar.izinliOriginler
+      izinliOriginler: ayar.izinliOriginler,
+      timeout: ayar.timeout
     };
   }
 

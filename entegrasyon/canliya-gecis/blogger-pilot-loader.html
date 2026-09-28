@@ -1,0 +1,42 @@
+<!-- RasyoTrend loader pilotu: test verisi gösterir; finansal veri/hesaplama içermez. -->
+<div id="rt-pilot" class="rt-panel" role="status" aria-live="polite" aria-atomic="true">Yükleniyor…</div>
+<noscript>Bu içerik için JavaScript etkin olmalıdır.</noscript>
+<script>
+(function (global, document) {
+  'use strict';
+  var kok = document.getElementById('rt-pilot');
+  if (global.__RASYOTREND_PILOT_BOOTSTRAP__) {
+    if (kok) kok.textContent = 'İçerik zaten başlatıldı.';
+    return;
+  }
+  global.__RASYOTREND_PILOT_BOOTSTRAP__ = true;
+  var assetRoot = 'https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/';
+  var betikler = [
+    'ortak/js/ortam-ayarlari.js',
+    'ortak/js/yardimcilar.js',
+    'ortak/js/veri-istemcisi.js',
+    'ortak/js/sayfa-loader.js'
+  ];
+  function hata() {
+    if (!kok) return;
+    kok.setAttribute('data-durum', 'hata');
+    kok.removeAttribute('aria-busy');
+    kok.textContent = 'İçerik şu anda yüklenemiyor. Lütfen daha sonra yeniden deneyin.';
+  }
+  function betikYukle(sira) {
+    if (sira === betikler.length) {
+      if (!global.RasyoTrendLoader || !global.RasyoTrendOrtam) { hata(); return; }
+      global.RasyoTrendLoader.yukle(global.RasyoTrendOrtam.pilot('production')).catch(hata);
+      return;
+    }
+    var script = document.createElement('script');
+    script.src = assetRoot + betikler[sira] + '?rt-surum=1.0.0';
+    script.onload = function () { betikYukle(sira + 1); };
+    script.onerror = hata;
+    document.head.appendChild(script);
+  }
+  if (!kok) return;
+  kok.setAttribute('aria-busy', 'true');
+  betikYukle(0);
+}(window, document));
+</script>

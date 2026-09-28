@@ -8,7 +8,7 @@ KOK = Path(__file__).resolve().parents[1]
 class LoaderTesti(unittest.TestCase):
     def test_pilot_sozlesmesi(self):
         html = (KOK / 'sayfalar/pilot-loader/index.html').read_text()
-        for ifade in ("sayfa: 'pilot-loader'", "surum: '1.0.0'", 'css:', 'js:', 'veri:', 'aria-live'):
+        for ifade in ('RasyoTrendOrtam.pilot(mod)', "params.get('rt-mod')", "'production'", "'local'", 'aria-live'):
             self.assertIn(ifade, html)
 
     def test_ornek_null_korur(self):
