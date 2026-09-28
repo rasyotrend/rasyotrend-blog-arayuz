@@ -1,9 +1,10 @@
 # temel-analiz-puan yükleme sözleşmesi
 
-- **Sayfa kimliği:** `temel-analiz-puan`; **asset sürümü:** sabit `1.0.0`.
+- **Sayfa kimliği:** `temel-analiz-puan`; **asset sürümü:** sabit `1.0.0`. Loader bu değeri CSS, JS ve veri URL'lerine `rt-surum` olarak uygular; URL'de farklı bir sürüm varsa yüklemeyi reddeder.
 - **Giriş noktası:** ortak `ortak/js/analiz-sayfasi.js`; loader `RasyoTrendSayfalar["temel-analiz-puan"]` kaydını çağırır.
-- **Beklenen JSON:** kökte `kayitlar` dizisi ve isteğe bağlı `guncellenme`; değerler backend tarafından hazır sağlanır.
+- **Beklenen JSON:** gerçek alan şeması henüz sağlanmamıştır. Kökte yalnız `kayitlar` dizisi beklenir; değerler backend tarafından hazır sağlanır.
 - **Null davranışı:** null/eksik alan sıfıra çevrilmez, türetilmez; sunumda “Veri yok” kullanılır.
 - **Hata davranışı:** geçersiz JSON/HTTP/asset hatası ortak loader'ın okunabilir hata fallback'ine gider.
-- **Ortak bileşenler:** token, temel, erişilebilirlik, bileşen, tablo ve analiz CSS'i; veri istemcisi, filtre ve sıralama JS'i.
-- Bu iskelet canlı Blogger HTML'i değildir ve hiçbir finansal puan/oran/değer hesaplamaz.
+- **Şu anda kullanılan ortak modüller:** URL güvenlik yardımcısı, timeout/AbortController veri istemcisi, loader; token, temel, bileşen ve analiz CSS'i.
+- **İleriki entegrasyon için hazır fakat kullanılmayanlar:** filtre, sıralama, tablo JS'i ve tablo CSS'i.
+- `PUBLIC_JSON_URL_GEREKLI` gerçek onaylı public URL gelene kadar korunur. Bu iskelet canlı Blogger HTML'i değildir ve finansal puan/oran/değer hesaplamaz.

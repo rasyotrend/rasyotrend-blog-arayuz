@@ -1,1 +1,22 @@
-(function(global){'use strict';global.RasyoTrendSayfalar=global.RasyoTrendSayfalar||{};global.RasyoTrendSayfalar['pilot-loader']=function(kok,ayar){return fetch(ayar.veri).then(function(r){if(!r.ok)throw new Error('Pilot verisi alınamadı');return r.json();}).then(function(veri){kok.textContent='';var h=document.createElement('h1');h.textContent=veri.baslik;kok.appendChild(h);var ul=document.createElement('ul');ul.className='pilot-liste';(veri.maddeler||[]).forEach(function(m){var li=document.createElement('li');li.textContent=m===null?'Veri yok':String(m);ul.appendChild(li);});kok.appendChild(ul);});};}(window));
+(function (global) {
+  'use strict';
+  global.RasyoTrendSayfalar = global.RasyoTrendSayfalar || {};
+  global.RasyoTrendSayfalar['pilot-loader'] = function (kok, ayar) {
+    var istemci = global.RasyoTrend && global.RasyoTrend.veri;
+    if (!istemci) return Promise.reject(new Error('Veri istemcisi bulunamadı'));
+    return istemci.jsonGetir(ayar.veri, { izinliOriginler: ayar.izinliOriginler }).then(function (veri) {
+      kok.textContent = '';
+      var baslik = document.createElement('h1');
+      baslik.textContent = veri.baslik;
+      kok.appendChild(baslik);
+      var liste = document.createElement('ul');
+      liste.className = 'pilot-liste';
+      (veri.maddeler || []).forEach(function (madde) {
+        var satir = document.createElement('li');
+        satir.textContent = madde === null ? 'Veri yok' : String(madde);
+        liste.appendChild(satir);
+      });
+      kok.appendChild(liste);
+    });
+  };
+}(window));

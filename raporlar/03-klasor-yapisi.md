@@ -10,11 +10,11 @@ Tema XML'i parçalanmadı; canlı özel sayfalar varmış gibi HTML üretilmedi.
 ## 5. Yapılan testler
 `./testler/calistir.sh`; hedef dizinlerin ve sekiz sayfa klasörünün varlık kontrolü.
 ## 6. Test sonuçları
-Tema regresyon testleri başarılı; klasörler Git tarafından README üzerinden izleniyor.
+18 Python testi, Node loader davranış paketi ve JS syntax kontrolleri başarılı; klasörler Git tarafından README üzerinden izleniyor.
 ## 7. Tespit edilen riskler
 `pages/` yayın ayarı repository yönetiminde ayrıca yapılmalıdır; kaynak ve dağıtım kopyaları manuel süreçte ayrışabilir.
 ## 8. Geri dönüş yöntemi
-Commit geri alınarak ek dizinler kaldırılır; tema etkilenmez.
+PR merge edilmeden önce branch/PR bütünüyle terk edilebilir. Merge sonrasında PR’nin merge commit’i geri alınabilir. Bir asset entegrasyonu ayrıca yapılmışsa Blogger referansı önceki immutable sürüme döndürülür; çalışan tema başlangıç XML SHA-256 değeriyle doğrulanır.
 ## 9. Bir sonraki aşamaya aktarılan yapı
 CSS/JS modüllerinin yerleşeceği açık kaynak sınırları.
 ## 10. Açık kalan konular

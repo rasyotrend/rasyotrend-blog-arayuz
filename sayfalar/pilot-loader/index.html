@@ -1,1 +1,23 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Loader pilotu</title><link rel="stylesheet" href="../../ortak/css/degiskenler.css"><link rel="stylesheet" href="../../ortak/css/temel.css"><link rel="stylesheet" href="../../ortak/css/bilesenler.css"></head><body><main id="rt-pilot" class="rt-panel" aria-live="polite"><noscript>Bu pilot JavaScript gerektirir.</noscript></main><script src="../../ortak/js/sayfa-loader.js"></script><script>RasyoTrendLoader.yukle({sayfa:'pilot-loader',surum:'1.0.0',kok:'#rt-pilot',css:'pilot.css?v=1.0.0',js:'pilot.js?v=1.0.0',veri:'ornek.json'}).catch(function(){/* Görünür fallback loader tarafından yazılır. */});</script></body></html>
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Loader pilotu</title>
+  <link rel="stylesheet" href="../../ortak/css/degiskenler.css">
+  <link rel="stylesheet" href="../../ortak/css/temel.css">
+  <link rel="stylesheet" href="../../ortak/css/bilesenler.css">
+</head>
+<body>
+  <main id="rt-pilot" class="rt-panel" aria-live="polite"><noscript>Bu pilot JavaScript gerektirir.</noscript></main>
+  <script src="../../ortak/js/yardimcilar.js"></script>
+  <script src="../../ortak/js/veri-istemcisi.js"></script>
+  <script src="../../ortak/js/sayfa-loader.js"></script>
+  <script>
+    RasyoTrendLoader.yukle({
+      sayfa: 'pilot-loader', surum: '1.0.0', kok: '#rt-pilot',
+      css: ['pilot.css'], js: 'pilot.js', veri: 'ornek.json'
+    }).catch(function () { /* Görünür fallback loader tarafından yazılır. */ });
+  </script>
+</body>
+</html>

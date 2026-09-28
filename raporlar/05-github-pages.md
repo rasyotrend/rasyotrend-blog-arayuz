@@ -8,13 +8,13 @@ Actions kullanmadan, branch/dizin tabanlı Pages için sürümlü statik yayın 
 ## 4. Değiştirilmeyen alanlar
 Pages repository ayarı etkinleştirilmedi; XML render mantığı taşınmadı, canlı site/deploy yapılmadı.
 ## 5. Yapılan testler
-`./testler/calistir.sh`; SHA-256 manifest ve değişken sürüm URL'si kontrolü; JS syntax.
+`./testler/calistir.sh`; SHA-256 manifest, source→Pages byte eşitliği, değişken sürüm URL’si ve JS syntax kontrolleri.
 ## 6. Test sonuçları
-10 statik test ve JS syntax kontrolleri başarılı.
+18 Python testi, source→Pages byte eşitliği, manifest ve JS syntax kontrolleri başarılı.
 ## 7. Tespit edilen riskler
-Manuel kaynak-dağıtım kopyalama drift yaratabilir. Gerçek Pages origin, MIME, cache ve CORS davranışı yayın öncesi doğrulanmalıdır.
+Source→Pages byte eşitliği testi drift’i merge öncesi yakalar; manuel kopyalama yine disiplin gerektirir. Gerçek Pages origin, MIME, cache ve CORS davranışı yayın öncesi doğrulanmalıdır.
 ## 8. Geri dönüş yöntemi
-Blogger sürüm URL'si önceki immutable dizine döndürülür; bu commit gerekirse geri alınır.
+PR merge edilmeden önce branch/PR bütünüyle terk edilebilir. Merge sonrasında PR’nin merge commit’i geri alınabilir. Bir asset entegrasyonu ayrıca yapılmışsa Blogger referansı önceki immutable sürüme döndürülür; çalışan tema başlangıç XML SHA-256 değeriyle doğrulanır.
 ## 9. Bir sonraki aşamaya aktarılan yapı
 Loader'ın referanslayabileceği sabit sürümlü asset yolları.
 ## 10. Açık kalan konular
