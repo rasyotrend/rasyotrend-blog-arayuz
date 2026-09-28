@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Loader pilotu</title>
+</head>
+<body>
+  <main id="rt-pilot" class="rt-panel" aria-live="polite" aria-atomic="true">Yükleniyor…<noscript>Bu pilot JavaScript gerektirir.</noscript></main>
+  <script src="https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/ortak/js/ortam-ayarlari.js?rt-surum=1.0.0"></script>
+  <script src="https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/ortak/js/yardimcilar.js?rt-surum=1.0.0"></script>
+  <script src="https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/ortak/js/veri-istemcisi.js?rt-surum=1.0.0"></script>
+  <script src="https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.0.0/ortak/js/sayfa-loader.js?rt-surum=1.0.0"></script>
+  <script>
+    (function () {
+      RasyoTrendLoader.yukle(RasyoTrendOrtam.pilot('production'))
+        .catch(function () { /* Görünür fallback loader tarafından yazılır. */ });
+    }());
+  </script>
+</body>
+</html>
