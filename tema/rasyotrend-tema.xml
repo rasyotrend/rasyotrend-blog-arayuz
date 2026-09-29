@@ -36,7 +36,7 @@
   <meta expr:content='data:view.url.canonical' name='twitter:url'/>
   <!-- RASYOTREND | BLOG TEMASI | v040 | 2026-09-14 -->
   <!-- BUILD: V029-TEKNIK-ANALIZ-DUZELTME -->
-  <!-- Modül haritası v1.0.0: kritik first-render fallback aşağıdaki b:skin içinde kasıtlı olarak korunur. -->
+  <!-- Modül haritası v1.1.0: kritik first-render fallback aşağıdaki b:skin içinde kasıtlı olarak korunur. -->
   <!-- Kaynak sorumlulukları: ortak/css ve ana-tema/css; harici asset başarısızlığı içeriği gizlemez. -->
   <b:skin><![CDATA[
 /* RASYOTREND v011 — responsive Blogger theme */
@@ -471,6 +471,10 @@ body{background:var(--white);color:var(--text)}.masthead,.footer{background:#111
 }
 
   ]]></b:skin>
+  <!-- v1.1.0: Harici CSS, b:skin kritik first-render fallback'ini kaldırmadan eklenir. -->
+  <link href='https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.1.0/ortak/css/tema-cekirdegi.css' rel='stylesheet'/>
+  <link href='https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.1.0/ana-tema/css/ana-tema.css' rel='stylesheet'/>
+
 </head>
 <body>
   <a class='skip' href='#main-content'>İçeriğe geç</a>
@@ -1333,9 +1337,31 @@ body{background:var(--white);color:var(--text)}.masthead,.footer{background:#111
     </div>
   </div>
   <footer class='footer'><div class='wrap'><div class='footer-top'><a class='brand' expr:href='data:blog.homepageUrl'><span>RASYO<em>TREND</em></span></a><a expr:href='data:blog.homepageUrl'>Ana sayfaya dön &#8593;</a></div><p>Bu sitedeki içerikler genel bilgilendirme amacı taşır; yatırım tavsiyesi değildir. Yatırım kararlarınızı kendi araştırmanız ve risk tercihleriniz doğrultusunda değerlendirin.</p><div class='footer-bottom'>&#169; RASYOTREND &#183; Tüm hakları saklıdır.</div></div></footer>
-  <!-- Modül haritası v1.0.0: navigasyon, slider ve kategori davranışlarının çalışan inline fallback'i. -->
-  <!-- Harici modüller doğrulanana kadar Blogger bootstrap ve davranış eşdeğerliği burada korunur. -->
+  <!-- Modül haritası v1.1.0: navigasyon, slider ve kategori davranışlarının çalışan inline fallback'i. -->
+  <!-- b:skin ve inline davranış eşdeğeri, GitHub Pages erişilemezse fallback olarak korunur. -->
+  <!-- v1.1.0 güvenli bootstrap: hata/zaman aşımında aşağıdaki XML fallback tek kez çalışır. -->
   <script type='text/javascript'>//<![CDATA[
+  (function (global, document) {
+    'use strict';
+    var ROOT = 'https://rasyotrend.github.io/rasyotrend-blog-arayuz/assets/v1.1.0/';
+    var finished = false;
+    var timer;
+
+    function state() {
+      var value = global.__RASYOTREND_V11__ = global.__RASYOTREND_V11__ || { surum: '1.1.0', baslatilan: {} };
+      value.claim = value.claim || function (name) {
+        if (value.baslatilan[name]) return false;
+        value.baslatilan[name] = true;
+        return true;
+      };
+      return value;
+    }
+
+    function fallback() {
+      if (finished) return;
+      finished = true;
+      global.clearTimeout(timer);
+      if (!state().claim('ana-tema')) return;
   (function () {
     var current = window.location.pathname.replace(/\/$/, '') || '/';
     document.querySelectorAll('.nav-list a').forEach(function (link) {
@@ -1532,6 +1558,33 @@ body{background:var(--white);color:var(--text)}.masthead,.footer{background:#111
       }
     });
   }());
+
+    }
+
+    function load(path, done) {
+      var script = document.createElement('script');
+      script.src = ROOT + path;
+      script.async = false;
+      script.crossOrigin = 'anonymous';
+      script.onload = done;
+      script.onerror = fallback;
+      document.head.appendChild(script);
+    }
+
+    timer = global.setTimeout(fallback, 8000);
+    load('ortak/js/tema-runtime.js', function () {
+      if (finished) return;
+      load('ana-tema/js/ana-tema.js', function () {
+        if (finished) return;
+        try {
+          if (!global.RasyoTrendAnaTema || typeof global.RasyoTrendAnaTema.baslat !== 'function') throw new Error('Ana tema girişi bulunamadı');
+          global.RasyoTrendAnaTema.baslat();
+          finished = true;
+          global.clearTimeout(timer);
+        } catch (error) { fallback(); }
+      });
+    });
+  }(window, document));
   //]]></script>
 </body>
 </html><!-- RASYOTREND v040 - DOSYA SONU -->

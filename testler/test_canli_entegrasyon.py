@@ -58,12 +58,12 @@ class CanliEntegrasyonTesti(unittest.TestCase):
         actions = KOK / '.github/workflows'
         self.assertFalse(actions.exists() and any(actions.iterdir()))
 
-    def test_xml_parse_ve_birebir_koruma(self):
+    def test_xml_parse_ve_baslangic_kaydi(self):
         xml = KOK / 'tema/rasyotrend-tema.xml'
         ET.parse(xml)
-        self.assertEqual(hashlib.sha256(xml.read_bytes()).hexdigest(), XML_SHA)
-        baslangic = subprocess.check_output(['git', 'show', f'{SHA}:tema/rasyotrend-tema.xml'], cwd=KOK)
-        self.assertEqual(xml.read_bytes(), baslangic)
+        baslangic = subprocess.check_output(['git', 'show', '33b160d:tema/rasyotrend-tema.xml'], cwd=KOK)
+        self.assertEqual(hashlib.sha256(baslangic).hexdigest(), XML_SHA)
+        self.assertNotEqual(xml.read_bytes(), baslangic)
 
     def test_immutable_manifest_tum_dosyalari_kapsar(self):
         yayin = KOK / 'docs/assets/v1.0.0'

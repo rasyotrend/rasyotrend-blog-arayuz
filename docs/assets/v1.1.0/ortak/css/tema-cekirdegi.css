@@ -1,0 +1,6 @@
+/* RasyoTrend v1.1.0 ortak first-render sözleşmesi. Ana tema değerleri b:skin fallback ile aynıdır. */
+:root{color-scheme:dark;--ink:#e3eaf2;--text:#c9d3df;--muted:#9daebe;--accent:#75cbbb;--line:#2a3a4a;--soft:#151f2c;--raised:#1b2938;--white:#0e1621}
+*,*::before,*::after{box-sizing:border-box}
+img{max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
