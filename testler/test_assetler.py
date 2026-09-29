@@ -16,25 +16,14 @@ class AssetTesti(unittest.TestCase):
             self.assertTrue(dosya.is_file(), yol)
             self.assertEqual(hashlib.sha256(dosya.read_bytes()).hexdigest(), ozet, yol)
 
-    def test_kaynak_yayin_byte_esitligi(self):
-        for kok_adi in ('ortak', 'ana-tema', 'sayfalar'):
-            kaynaklar = {
-                p.relative_to(KOK / kok_adi)
-                for p in (KOK / kok_adi).rglob('*')
-                if p.is_file() and p.suffix in ('.css', '.js')
-            }
-            kopyalar = {
-                p.relative_to(YAYIN / kok_adi)
-                for p in (YAYIN / kok_adi).rglob('*')
-                if p.is_file() and p.suffix in ('.css', '.js')
-            }
-            self.assertEqual(kaynaklar, kopyalar, kok_adi)
-            for goreli in kaynaklar:
-                self.assertEqual(
-                    (KOK / kok_adi / goreli).read_bytes(),
-                    (YAYIN / kok_adi / goreli).read_bytes(),
-                    str(goreli),
-                )
+    def test_v100_manifestindeki_kaynak_yayin_byte_esitligi(self):
+        # v1.0.0 immutable bir snapshot'tır; daha yeni kaynak dosyaları bu kümeye eklenmez.
+        manifest = json.loads((YAYIN / 'manifest.json').read_text())
+        for yayin_yolu in manifest['dosyalar']:
+            goreli = Path(yayin_yolu).relative_to('assets/v1.0.0')
+            if goreli.parts[0] not in ('ortak', 'ana-tema', 'sayfalar') or goreli.suffix not in ('.css', '.js'):
+                continue
+            self.assertEqual((KOK / goreli).read_bytes(), (YAYIN / goreli).read_bytes(), str(goreli))
 
     def test_pilot_html_bilincli_production_farki(self):
         kaynak = (KOK / 'sayfalar/pilot-loader/index.html').read_text()
